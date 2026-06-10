@@ -1,0 +1,146 @@
+[
+  {
+    "id": "fe315f075231548b",
+    "type": "八股",
+    "question": "这朵花是什么品种？ ``` 2. <font style=\"color:rgb(25, 27, 31);\">策略模型 </font><font style=\"color:rgb(25, 27, 31);\">πθ</font><font style=\"color:rgb(25, 27, 31);\"> 输出推理过程，并基于输入生成一组输出。</font> ```python imag 1",
+    "answer": "<think>卡车有一个可以打开的门，在车的右边...</think>\n..\nimag n",
+    "category": "<font style=\"color:rgb(1, 1, 1);\">多模态-Reasoning</font>",
+    "tags": [
+      "Visual-RFT"
+    ],
+    "difficulty": "中",
+    "source_doc": "3__MLLM模型__ye4in8rmfgddygkt.md"
+  },
+  {
+    "id": "fe315f075231548b",
+    "type": "八股",
+    "question": "这朵花是什么品种？ ``` 2. <font style=\"color:rgb(25, 27, 31);\">策略模型 </font><font style=\"color:rgb(25, 27, 31);\">πθ</font><font style=\"color:rgb(25, 27, 31);\"> 输出推理过程，并基于输入生成一组输出。</font> ```python imag 1",
+    "answer": "<think>卡车有一个可以打开的门，在车的右边...</think>\n..\nimag n",
+    "category": "<font style=\"color:rgb(1, 1, 1);\">多模态-Reasoning模型</font>",
+    "tags": [
+      "Visual-RFT <font style=\"color:#D22D8D;\"> (by草莓师姐)</font>"
+    ],
+    "difficulty": "中",
+    "source_doc": "9__Reasoning__ha9roqcdd52r49ue.md"
+  },
+  {
+    "id": "fe315f075231548b",
+    "type": "八股",
+    "question": "这朵花是什么品种？ ``` 2. <font style=\"color:rgb(25, 27, 31);\">策略模型 </font><font style=\"color:rgb(25, 27, 31);\">πθ</font><font style=\"color:rgb(25, 27, 31);\"> 输出推理过程，并基于输入生成一组输出。</font> ```python imag 1",
+    "answer": "<think>卡车有一个可以打开的门，在车的右边...</think>\n..\nimag n",
+    "category": "<font style=\"color:rgb(1, 1, 1);\">多模态RLHF</font>",
+    "tags": [
+      "Visual-RFT"
+    ],
+    "difficulty": "中",
+    "source_doc": "RLHF__ug2w2gkgsusgcino.md"
+  },
+  {
+    "id": "d3210623d45fc533",
+    "type": "八股",
+    "question": "图中书的名字是什么？",
+    "answer": "让我们去深海吧。",
+    "category": "MLLM指令数据合成",
+    "tags": [
+      "LLaVAR**<font style=\"color:#601BDE;\"> </font>**<font style=\"color:#D22D8D;\">（by草莓师姐）</font>"
+    ],
+    "difficulty": "中",
+    "source_doc": "SFT__xwz2lte5my7z7u5e.md"
+  },
+  {
+    "id": "a403095519207762",
+    "type": "八股",
+    "question": "书的类型是什么？",
+    "answer": "一本偷偷看的书\n```",
+    "category": "MLLM指令数据合成",
+    "tags": [
+      "LLaVAR**<font style=\"color:#601BDE;\"> </font>**<font style=\"color:#D22D8D;\">（by草莓师姐）</font>"
+    ],
+    "difficulty": "中",
+    "source_doc": "SFT__xwz2lte5my7z7u5e.md"
+  },
+  {
+    "id": "aa0719547ae60d51",
+    "type": "八股",
+    "question": "进程和线程的区别是什么？",
+    "answer": "进程是资源分配的基本单位，线程是 CPU 调度的基本单位。\n一个进程可包含多个线程，线程共享进程的地址空间与资源，而进程间相互独立。\n线程切换开销小于进程切换。",
+    "category": "操作系统",
+    "tags": [
+      "进程与线程"
+    ],
+    "difficulty": "中",
+    "source_doc": "sample_doc.md"
+  },
+  {
+    "id": "cb9a1d21ba012416",
+    "type": "八股",
+    "question": "什么是死锁？",
+    "answer": "死锁是指多个进程因竞争资源而互相等待、都无法推进的状态。\n产生的四个必要条件：互斥、占有并等待、不可剥夺、循环等待。",
+    "category": "操作系统",
+    "tags": [
+      "进程与线程"
+    ],
+    "difficulty": "中",
+    "source_doc": "sample_doc.md"
+  },
+  {
+    "id": "d3210623d45fc533",
+    "type": "八股",
+    "question": "图中书的名字是什么？",
+    "answer": "让我们去深海吧。",
+    "category": "LLM数据合成",
+    "tags": [
+      "LLaVAR**<font style=\"color:#601BDE;\"> </font>**<font style=\"color:#D22D8D;\">（by草莓师姐）</font>"
+    ],
+    "difficulty": "中",
+    "source_doc": "⓸_数据集__svrkazvrflny835w.md"
+  },
+  {
+    "id": "a403095519207762",
+    "type": "八股",
+    "question": "书的类型是什么？",
+    "answer": "一本偷偷看的书\n```",
+    "category": "LLM数据合成",
+    "tags": [
+      "LLaVAR**<font style=\"color:#601BDE;\"> </font>**<font style=\"color:#D22D8D;\">（by草莓师姐）</font>"
+    ],
+    "difficulty": "中",
+    "source_doc": "⓸_数据集__svrkazvrflny835w.md"
+  },
+  {
+    "id": "fe315f075231548b",
+    "type": "八股",
+    "question": "这朵花是什么品种？ ``` 2. <font style=\"color:rgb(25, 27, 31);\">策略模型 </font><font style=\"color:rgb(25, 27, 31);\">πθ</font><font style=\"color:rgb(25, 27, 31);\"> 输出推理过程，并基于输入生成一组输出。</font> ```python imag 1",
+    "answer": "<think>卡车有一个可以打开的门，在车的右边...</think>\n..\nimag n",
+    "category": "<font style=\"color:rgb(1, 1, 1);\">多模态-Reasoning</font>",
+    "tags": [
+      "Visual-RFT"
+    ],
+    "difficulty": "中",
+    "source_doc": "⓹_多模态Reasoning__gvuulh4e7ygcihx8.md"
+  },
+  {
+    "id": "d3210623d45fc533",
+    "type": "八股",
+    "question": "图中书的名字是什么？",
+    "answer": "让我们去深海吧。",
+    "category": "<font style=\"color:rgb(25, 27, 31);\">OCR/文档理解大模型</font>",
+    "tags": [
+      "LLaVAR"
+    ],
+    "difficulty": "中",
+    "source_doc": "⓼_OCR_文档理解大模型__gtgr5sbvqrx5aw04.md"
+  },
+  {
+    "id": "a403095519207762",
+    "type": "八股",
+    "question": "书的类型是什么？",
+    "answer": "一本偷偷看的书\n```\n\n:::color5\n**<font style=\"color:#601BDE;\">3.模型结构</font>**\n\n:::\n\n![](https://cdn.nlark.com/yuque/0/2025/png/29769680/1741853552476-45ff15b3-a7a3-45c6-b49b-8a16ef2d194c.png)\n\n<font style=\"color:rgb(25, 27, 31);\">LLaVAR采用和LLaVA一样的模型结构，不过根据视觉编码器支持的分辨率，有两个版本，224x224的，以及336x336的。</font>\n\n:::color5\n**<font style=\"color:#601BDE;\">4.模型评测</font>**\n\n:::\n\n<font style=\"color:rgb(25, 27, 31);\">LLaVAR对比了已有的MLMM在ST-VQA，OCR-VQA，TextVQA以及DocVQA上</font>**<font style=\"color:rgb(25, 27, 31);\">zero-shot</font>**<font style=\"color:rgb(25, 27, 31);\">的结果</font>**<font style=\"color:rgb(25, 27, 31);\">，仅判断答案是否在回复中。</font>**<font style=\"color:rgb(25, 27, 31);\">结果表明，LLaVAR在这些数据上对于文字的理解显著优于已有的MLMM。</font>\n\n![](https://cdn.nlark.com/yuque/0/2025/png/29769680/1741853622268-6bb7b05e-5642-42ef-a142-f4349b70d244.png)",
+    "category": "<font style=\"color:rgb(25, 27, 31);\">OCR/文档理解大模型</font>",
+    "tags": [
+      "LLaVAR"
+    ],
+    "difficulty": "中",
+    "source_doc": "⓼_OCR_文档理解大模型__gtgr5sbvqrx5aw04.md"
+  }
+]
