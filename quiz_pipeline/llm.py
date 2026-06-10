@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 from typing import Any, Optional
 
 from .config import config
@@ -171,13 +172,27 @@ class LLMClient:
         self.embedding_model = config.embedding_model
         self.embedder = LocalEmbedder(self.embedding_model)
 
-    def extract_questions(self, content: str, heading: str, source_doc: str) -> list[dict[str, Any]]:
-        """从一个内容块抽取/生成题目，稳健解析 JSON。"""
+    def extract_questions(
+        self,
+        content: str,
+        heading: str,
+        source_doc: str,
+        max_retries: int = 3,
+    ) -> list[dict[str, Any]]:
+        """从一个内容块抽取/生成题目，稳健解析 JSON。失败按指数退避重试。"""
         user = EXTRACT_USER_TEMPLATE.format(heading=heading, source_doc=source_doc, content=content)
-        raw = self.chat.infer(user, system=EXTRACT_SYSTEM_PROMPT)
-        data = _extract_json(raw)
-        items = data.get("questions", data if isinstance(data, list) else [])
-        return items if isinstance(items, list) else []
+        last_err: Optional[Exception] = None
+        for attempt in range(max_retries):
+            try:
+                raw = self.chat.infer(user, system=EXTRACT_SYSTEM_PROMPT)
+                data = _extract_json(raw)
+                items = data.get("questions", data if isinstance(data, list) else [])
+                return items if isinstance(items, list) else []
+            except Exception as e:  # 网络/限流/超时等
+                last_err = e
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)  # 1s, 2s, 4s...
+        raise RuntimeError(f"LLM 抽取失败（已重试 {max_retries} 次）：{last_err}")
 
     def embed(self, texts: list[str]) -> list[list[float]]:
         """批量生成 embedding（开源本地模型）。"""

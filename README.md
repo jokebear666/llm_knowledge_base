@@ -46,8 +46,10 @@ python -m quiz_pipeline.cli export --namespace user/repo
 #    或归整本地语雀 Markdown 导出包
 python -m quiz_pipeline.cli export --local ./yuque_export_dir
 
-# 2. 解析（--no-llm 可仅用规则，不调用 LLM）
-python -m quiz_pipeline.cli parse
+# 2. 解析（默认 4 并发调用 LLM，支持断点续跑；--no-llm 可仅用规则）
+python -m quiz_pipeline.cli parse                 # 默认并发 4
+python -m quiz_pipeline.cli parse --concurrency 8 # 提高并发（注意网关限流）
+# 中途失败/中断后重跑同一命令即可，已完成的块会自动跳过（断点续跑）
 
 # 3. 质检去重，产出 data/qc/review_sheet.csv 供人工核对
 python -m quiz_pipeline.cli qc
