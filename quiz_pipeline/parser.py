@@ -31,16 +31,35 @@ A_MARK = re.compile(r"^\s*(?:A[:：.]|答[:：.]|答案[:：.]|参考答案[:：
 HEADING_LINE = re.compile(r"^#{1,6}\s+(.+)$")
 
 
-def _category_from_heading(heading: str) -> str:
-    if not heading:
-        return "未分类"
-    return heading.split(" / ")[0].strip() or "未分类"
+def _category_from_source(source_doc: str) -> str:
+    """从来源文件名推导稳定的「知识领域」分类。
+
+    导出文件名形如「4__语音大模型__go342l3xnxz302iv.md」，取中间的文档标题作 category，
+    这是稳定的学科领域（便于跨文档检索与薄弱点推荐），小节标题则降级进 tags。
+    """
+    stem = source_doc.rsplit(".", 1)[0]  # 去扩展名
+    parts = stem.split("__")
+    # 形如 [序号, 标题, slug]；取标题段。兼容无序号 (前缀为空) 的情况。
+    if len(parts) >= 3:
+        title = parts[1].strip()
+    elif len(parts) == 2:
+        title = parts[0].strip() or parts[1].strip()
+    else:
+        title = stem.strip()
+    title = title.replace("_", " ").strip()
+    return title or "未分类"
+
+
+def _heading_tags(heading: str) -> list[str]:
+    """把小节标题路径拆成 tags（去掉空段）。"""
+    return [t.strip() for t in heading.split(" / ") if t.strip()]
 
 
 def rule_parse_chunk(chunk: Chunk, source_doc: str) -> list[Question]:
     """对显式问答结构的块做正则切分。返回空列表代表规则不适用。"""
     lines = chunk.text.splitlines()
-    category = _category_from_heading(chunk.heading)
+    category = _category_from_source(source_doc)
+    heading_tags = _heading_tags(chunk.heading)
 
     questions: list[Question] = []
     cur_q: Optional[str] = None
@@ -54,7 +73,7 @@ def rule_parse_chunk(chunk: Chunk, source_doc: str) -> list[Question]:
                 question=cur_q,
                 answer="\n".join(cur_a).strip(),
                 category=category,
-                tags=[t for t in chunk.heading.split(" / ") if t][1:],
+                tags=heading_tags,
                 source_doc=source_doc,
             )
             if q.is_valid():
@@ -203,14 +222,31 @@ def parse_all(
 
 
 def _items_to_questions(raw_items: list[dict], chunk: Chunk, source_doc: str) -> list[Question]:
-    """把 LLM 原始 items 转成 Question（与 llm_parse_chunk 同逻辑，供缓存复用）。"""
+    """把 LLM 原始 items 转成 Question（与 llm_parse_chunk 同逻辑，供缓存复用）。
+
+    category 统一由来源文档推导（稳定知识领域），小节标题并入 tags；
+    忽略 LLM 可能输出的 category（prompt 已要求不输出）。
+    """
     out: list[Question] = []
-    fallback_cat = _category_from_heading(chunk.heading)
+    category = _category_from_source(source_doc)
+    heading_tags = _heading_tags(chunk.heading)
     for item in raw_items:
         if not isinstance(item, dict):
             continue
-        item.setdefault("category", fallback_cat)
+        item.pop("category", None)  # 由系统统一填，忽略模型输出
+        item["category"] = category
         item["source_doc"] = source_doc
+        # 合并：小节标题 tags + 模型 tags（去重保序）
+        model_tags = item.get("tags") or []
+        if isinstance(model_tags, str):
+            model_tags = [model_tags]
+        merged, seen = [], set()
+        for t in [*heading_tags, *model_tags]:
+            ts = str(t).strip()
+            if ts and ts not in seen:
+                seen.add(ts)
+                merged.append(ts)
+        item["tags"] = merged
         try:
             q = Question(**item)
         except Exception:
