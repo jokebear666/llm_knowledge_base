@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 流水线产物
+data/raw/
+data/parsed/
+data/qc/
+*.log

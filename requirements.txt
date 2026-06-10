@@ -1,0 +1,31 @@
+# 语雀知识库转结构化题库 - 依赖
+# HTTP / 语雀 OpenAPI
+requests>=2.31.0
+
+# LLM 抽取（参考 llm_client.py 的 AzureGPTClient，走 langchain + Azure responses API）
+langchain-openai>=0.1.7
+langchain-core>=0.2.0
+# 稳健解析模型输出 JSON
+json-repair>=0.25.0
+
+# embedding：开源本地模型（默认 BAAI/bge-small-zh-v1.5，中文友好、512维）
+sentence-transformers>=2.7.0
+
+# Supabase / Postgres 入库
+psycopg2-binary>=2.9.9
+
+# 数据校验 & 模型
+pydantic>=2.6.0
+
+# Markdown / HTML 解析辅助
+beautifulsoup4>=4.12.0
+markdown-it-py>=3.0.0
+
+# 配置
+python-dotenv>=1.0.1
+
+# 进度条
+tqdm>=4.66.0
+
+# 数值计算（embedding 相似度去重）
+numpy>=1.26.0
