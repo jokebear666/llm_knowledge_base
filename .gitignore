@@ -4,8 +4,7 @@ __pycache__/
 .venv/
 venv/
 
-# 流水线产物
-data/raw/
-data/parsed/
-data/qc/
+# LLM 断点续跑缓存（体积大、无需入库）
+data/parsed/.llm_cache.json
+data_all/parsed/.llm_cache.json
 *.log
