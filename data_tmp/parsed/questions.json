@@ -1,0 +1,3600 @@
+[
+    {
+      "id": "d3d627b16acbdebb",
+      "type": "八股",
+      "question": "Prompt Engineering 的核心解决问题是什么？其工程实践除了编写提示词外还包括哪些环节？",
+      "answer": "Prompt Engineering 的核心解决的是“输入表达”问题，即通过优化输入内容，让大语言模型更准确地理解用户意图并输出符合预期的结果。它不仅仅是编写指令，还包括系统性的测试、评估与迭代，以持续优化提示效果。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Prompt Engineering：明确任务目标与输入表达",
+        "Prompt Engineering",
+        "输入表达",
+        "测试评估",
+        "迭代优化"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "6007a88de596f172",
+      "type": "八股",
+      "question": "Prompt Engineering 阶段常见的提示词优化方法有哪些？请分别说明其作用。",
+      "answer": "常见方法包括：\n1. 角色与背景设定：通过格式化定义模型的身份、背景和行为准则，约束模型的回答风格与行为边界。\n2. 样本示例（One-shot/Few-shot）：提供一个或多个具体示例，用于规范模型输出格式、风格或任务处理方式。\n3. 思维链（Chain of Thought）：引导模型按步骤进行逻辑推理，以提升复杂推理任务中的表现。\n4. ReAct 框架：将推理与行动观测结合起来，使模型在生成推理过程的同时能够结合行动结果进行后续处理，这一方式已初步具备 Agent 的雏形。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Prompt Engineering：明确任务目标与输入表达",
+        "Prompt Engineering",
+        "角色设定",
+        "Few-shot",
+        "Chain of Thought",
+        "ReAct"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "35c00a16c8953efc",
+      "type": "八股",
+      "question": "Prompt Engineering 在能力边界上有哪些明确局限？",
+      "answer": "Prompt Engineering 的局限主要包括：\n1. 无法凭空为模型注入私域知识。\n2. 无法使模型感知外部世界的实时动态。\n3. 无法原生解决跨轮对话的持续记忆问题。\n4. 无法替代权限控制、执行环境与错误恢复等系统级机制。\n这些限制说明，仅靠优化提示词无法支撑需要外部环境交互和系统能力保障的复杂任务。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Prompt Engineering：明确任务目标与输入表达",
+        "Prompt Engineering",
+        "局限性",
+        "私域知识",
+        "实时感知",
+        "持续记忆",
+        "系统机制"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "c87694dae965cd70",
+      "type": "八股",
+      "question": "为什么仅靠 Prompt Engineering 难以支撑大语言模型执行多步复杂任务？",
+      "answer": "因为 Prompt Engineering 主要优化的是输入表达，只能提升模型对用户意图的理解和单轮输出效果，但无法补足执行复杂任务所需的系统能力。具体来说，它不能凭空注入私域知识，不能感知外部世界的实时变化，不能原生支持跨轮持续记忆，也不能替代权限控制、执行环境和错误恢复等系统级机制。因此，当目标从问答扩展到 Agent 式的多步复杂任务执行时，仅靠 Prompt Engineering 是不够的。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Prompt Engineering：明确任务目标与输入表达",
+        "Prompt Engineering",
+        "多步任务",
+        "Agent",
+        "系统能力边界"
+      ],
+      "difficulty": "难",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "4af6abfcb6ad894b",
+      "type": "八股",
+      "question": "什么是 Context Engineering？它关注的信息范围包括哪些内容？",
+      "answer": "Context Engineering 指围绕模型上下文窗口，对会影响模型决策的信息进行高效组织、编排与重构的工程实践。它关注的不只是 Prompt，而是所有进入模型视野并参与推理的信息。典型范围包括：1. 提示词；2. 用户输入；3. 工具定义及工具返回结果；4. 历史对话；5. 检索得到的知识片段；6. 长期与短期记忆；7. 当前任务状态。其核心不是机械地把信息塞进上下文，而是根据任务需要有效组织这些信息。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Context Engineering：构建关键时刻的上下文视野",
+        "Context Engineering",
+        "上下文窗口",
+        "Prompt",
+        "信息编排"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "04b0f13d3de8736f",
+      "type": "八股",
+      "question": "在企业私有知识场景中，RAG 的作用是什么？为什么不能简单把全部知识一次性输入模型？",
+      "answer": "RAG（检索增强生成）的作用是：面对庞大的私域知识、产品文档或内部规范时，先通过语义检索提取与当前问题最相关的知识片段，再将这些片段输入模型进行生成或推理。不能把全部知识一次性输入模型，原因是知识规模通常远超上下文窗口容量，直接全量输入既不可行，也会降低上下文利用效率。因此，RAG 的关键价值在于按需检索、选择相关片段并增强模型回答。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Context Engineering：构建关键时刻的上下文视野",
+        "RAG",
+        "检索增强生成",
+        "企业知识库",
+        "语义检索"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "4632c9527d663573",
+      "type": "八股",
+      "question": "在什么场景下，直接使用 Grep、Glob、Read 等文件系统操作会比向量检索更高效精准？",
+      "answer": "在代码仓库导航、局部文件定位等强结构化场景中，直接使用 Grep、Glob、Read 等文件系统操作通常比向量检索更高效、更精准。原因在于这类任务的目标对象和定位方式具有明确的结构特征，直接基于文件系统和文本模式进行查找，往往比语义向量检索更贴近任务需求。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Context Engineering：构建关键时刻的上下文视野",
+        "RAG",
+        "代码仓库",
+        "Grep",
+        "Glob",
+        "Read",
+        "文件系统"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "d904bceae8e0d741",
+      "type": "八股",
+      "question": "为什么说缺乏工具的 LLM 像“缸中之脑”？为模型接入工具通常能补足哪些能力？",
+      "answer": "缺乏工具的 LLM 虽然具备推理能力，但无法直接感知现实世界信息，也无法执行外部动作，因此像“缸中之脑”。为模型接入工具可以补足以下能力：1. 接入时间工具，获取当前时间；2. 接入搜索引擎或 API，获取现实世界信息；3. 接入代码与系统工具，执行文件修改、命令运行、日志查询等操作。工具使模型从纯推理系统扩展为可感知、可行动的系统。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Context Engineering：构建关键时刻的上下文视野",
+        "Tools",
+        "工具调用",
+        "LLM",
+        "外部交互"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "51d340556bdbd3f5",
+      "type": "八股",
+      "question": "为什么不能简单通过拼接全部历史对话来实现 LLM 的记忆？短期记忆和长期记忆分别承担什么职责？",
+      "answer": "不能简单通过拼接全部历史对话来实现记忆，因为这种方式极易耗尽上下文窗口容量，导致上下文成本过高且信息噪声增加。因此需要进行精细化信息编排，包括：1. 甄别需要保留的核心历史信息；2. 对冗余信息进行压缩、摘要或外置存储。职责上，短期记忆用于维持连续对话，保证当前交互的连贯性；长期记忆用于管理跨任务偏好、固定约束与历史决策。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Context Engineering：构建关键时刻的上下文视野",
+        "Memory",
+        "短期记忆",
+        "长期记忆",
+        "上下文窗口",
+        "摘要压缩"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "24e4fda65b02259a",
+      "type": "八股",
+      "question": "仅靠 Context Engineering 不能解决哪些系统级问题？",
+      "answer": "Context Engineering 主要解决“模型能看到什么”的问题，但不能覆盖一系列系统级挑战，包括：1. 高风险工具的误用防范，例如 Agent 意外切断自身网络；2. 代码修改后的自动化验证机制；3. 任务失败后的重试与回滚策略；4. 任务执行中的合理汇报时机控制；5. 长周期任务中可追溯的过程记录。这些问题超出了单纯上下文组织的范畴，需要进一步扩展到整个运行系统层面的工程设计。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Context Engineering：构建关键时刻的上下文视野",
+        "Context Engineering",
+        "系统设计",
+        "风险控制",
+        "回滚",
+        "可追溯性"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "625eaf86d37caa4b",
+      "type": "八股",
+      "question": "在代码任务中，为了避免 Agent 在多步执行中失控，任务目标与边界约束至少应明确哪些内容？",
+      "answer": "至少应明确以下四类内容：1. 任务完成的具体标准，即什么状态才算完成；2. 严禁触碰的目录、分支或环境，明确禁止动作；3. 失败后的处理策略，例如重试、回退或挂起确认；4. 必须汇报的关键节点。缺少这些约束时，Agent 容易过度行动，直接影响产出质量。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Harness Engineering：构建可运行、可纠错、可追溯的系统环境",
+        "Harness Engineering",
+        "Agent",
+        "任务边界",
+        "约束设计",
+        "代码任务"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "db52fe07fdf76d59",
+      "type": "八股",
+      "question": "为什么仅靠优化 Prompt 不能替代可观测的反馈回路？软件开发中常见的反馈源有哪些？",
+      "answer": "仅靠优化 Prompt 不能替代反馈回路，因为 Agent 的自我纠错依赖外部可观测信号；如果系统没有暴露真实反馈，Agent 无法判断当前行为是否正确，也无法基于结果修正后续步骤。软件开发中的常见反馈源包括：1. 测试结果；2. Lint 与类型检查，常结合 LSP；3. 结构化日志；4. 真实运行输出；5. 调试器回传信息。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Harness Engineering：构建可运行、可纠错、可追溯的系统环境",
+        "Harness Engineering",
+        "反馈回路",
+        "可观测性",
+        "测试",
+        "Lint",
+        "LSP"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "7d8f4c3cf2108831",
+      "type": "八股",
+      "question": "Harness Engineering 中，为什么工具集应“足够但不过载”？推荐的工具组织方式是什么？",
+      "answer": "工具集应“足够但不过载”，因为工具过多会增加模型的选择成本，并挤占上下文窗口，反而降低执行效率与稳定性。推荐的组织方式是：1. 让工具可发现且按需加载；2. 优先提供一组高频通用能力，例如 Read、Write、Grep、Glob、Bash；3. 由 Bash 提供兜底支持；4. 其余能力交由项目专属 CLI 或脚本处理。该策略建立在一个前提上：智能 Agent 能自主寻找并使用合适工具。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Harness Engineering：构建可运行、可纠错、可追溯的系统环境",
+        "Harness Engineering",
+        "工具设计",
+        "Coding Agent",
+        "上下文管理",
+        "Bash"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "f8784fee06d3f7f2",
+      "type": "八股",
+      "question": "为什么需要向 Coding Agent 暴露隐性知识与前置规则？请结合“上线新功能”说明这类隐性约束包含哪些方面。",
+      "answer": "需要暴露隐性知识与前置规则，是因为 Coding Agent 的执行偏差常来自缺少团队默认规则。人类沟通中包含大量高密度、多模态的隐含信息，如果这些细节没有被明确呈现给模型，Agent 很容易产生幻觉或遗漏关键步骤。以“上线新功能”为例，其隐含约束可能包括：埋点指标、历史兼容性、UI 文案同步、发布链路等。因此，应将相当于“新人入职首周需掌握的业务背景与规范”的内容显式提供给 Agent。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Harness Engineering：构建可运行、可纠错、可追溯的系统环境",
+        "Harness Engineering",
+        "Coding Agent",
+        "隐性知识",
+        "规则注入",
+        "业务约束"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "2f568726284d0611",
+      "type": "八股",
+      "question": "长程任务中的记录系统为什么要采用渐进式披露？一个合理的记录系统中，AGENTS.md、docs/ 和 git 分别承担什么职责？",
+      "answer": "长程任务需要大量记录，但上下文窗口非常宝贵，因此记录系统应采用渐进式披露：通过信息索引把细节沉淀到可维护的位置，避免把所有历史细节都塞进当前上下文。一个合理的记录系统中：1. AGENTS.md 负责声明规则、入口与知识分布地图；2. docs/ 负责沉淀领域文档、流程说明与排障记录；3. git 负责保存代码变更与提交语义，作为低检索成本的外部记忆。这样的分层记录方式有助于维持长期任务中的稳定记忆。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**AI工程范式的三次演化：Prompt、Context与Harness Engineering**",
+        "Harness Engineering：构建可运行、可纠错、可追溯的系统环境",
+        "Harness Engineering",
+        "记录系统",
+        "长程任务",
+        "AGENTS.md",
+        "docs",
+        "git"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "77dea1622cb2305f",
+      "type": "八股",
+      "question": "什么是 Agent 的 One-shotting 失败模式？它为什么会显著降低长任务执行效率？",
+      "answer": "One-shotting 指 Agent 试图在单个周期内一步完成全部任务的失败模式。它会显著降低长任务执行效率，原因在于：1. 任务推进过程中容易耗尽上下文窗口。2. 当进入下一个会话时，Agent 面对的是缺乏文档说明的半成品代码。3. 为了继续工作，Agent 不得不消耗大量 token 和算力去推测之前的实现进度、恢复上下文和重建状态。结果是，本应用于继续开发的资源被浪费在状态恢复上，整体效率明显下降。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**为什么需要 Harness Engineering**",
+        "Agent",
+        "One-shotting",
+        "上下文窗口",
+        "失败模式"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "fffc82cc957d997c",
+      "type": "八股",
+      "question": "为什么仅通过单元测试或简单的 curl 命令，不能证明 Agent 完成的功能已经真正可用？",
+      "answer": "因为单元测试或简单的 curl 命令只能验证局部逻辑或有限接口响应，不能证明功能在真实环境中的端到端可用性。如果缺乏明确的验证提示，Agent 往往会在代码写完后过早将功能标记为“完成”，但实际上仍可能存在集成问题、运行环境问题或完整业务链路未打通的问题。因此，判断功能是否真正完成，不能只依赖单元测试或简单命令，还需要进行端到端验证。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**为什么需要 Harness Engineering**",
+        "Agent",
+        "测试验证",
+        "端到端测试",
+        "失败模式"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "9057d2aa2c2e5247",
+      "type": "八股",
+      "question": "为什么向 Agent 盲目输入大量 MCP 工具、冗长文档和历史对话记录，通常不会提升效果，反而可能降低性能？",
+      "answer": "因为上下文填充度越高，LLM 的输出质量往往越差。当上下文窗口使用率超过约 40% 后，模型会从“智能区”进入“迟钝区”，更容易出现幻觉、逻辑循环、工具调用格式错误以及低质量代码生成等问题。因此，盲目堆积 MCP 工具说明、冗长文档和历史对话记录，并不会提升 Agent 的智能水平，反而会因为无关或过量信息占据上下文，削弱模型的聚焦推理能力，导致整体性能下降。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**为什么需要 Harness Engineering**",
+        "Agent",
+        "MCP",
+        "上下文管理",
+        "性能优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "9228e863dd39f5ae",
+      "type": "八股",
+      "question": "现代 AI 工程中的 Prompt Engineering、Context Engineering 与 Harness Engineering 分别解决什么问题？三者之间是什么关系？",
+      "answer": "三者分别对应现代 AI 工程中的不同层次：\n1. Prompt Engineering：解决任务表达问题，即如何把任务清晰地传达给模型。\n2. Context Engineering：解决信息供给问题，即如何为模型提供完成任务所需的上下文与相关信息。\n3. Harness Engineering：解决真实环境中的稳定执行问题，即如何让模型在实际系统和生产环境中可靠运行。\n三者之间呈逐层向外扩展的包含关系：从任务表达，到信息供给，再到真实环境中的执行保障，层次逐步外延。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**总结：Agent 时代，工程重心向 Harness 转移**",
+        "Prompt Engineering",
+        "Context Engineering",
+        "Harness Engineering",
+        "AI工程"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "13cc7feaf107397d",
+      "type": "八股",
+      "question": "在三层工程范式中，Prompt、Context、Harness 在崩溃排查任务中的职责分别是什么？",
+      "answer": "三者职责如下：1. Prompt：定义核心目标，例如“解决崩溃问题”；2. Context：提供执行所需材料，例如日志、代码仓库、历史案例、相关 SDK 等；3. Harness：固化排查流程与运行环境，指导 Agent 合理使用工具与记忆系统，持续逼近问题真相。三者分工不同，Prompt 负责目标，Context 负责信息，Harness 负责执行机制。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**先进团队的实战案例**",
+        "Harness实践案例：Debug Agent 的工程演进",
+        "Prompt",
+        "Context",
+        "Harness",
+        "Agent架构"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "9c222f5c09a57c00",
+      "type": "八股",
+      "question": "上下文架构的核心原则是什么？业界为什么倾向于采用分层上下文与渐进式披露机制，而不是把所有指令集中在单一文件中？",
+      "answer": "核心原则是：Agent 应当且仅应当获取当前任务所需的精确上下文信息。\n\n之所以采用分层上下文与渐进式披露机制，而不是把所有指令集中在单一文件中，原因在于：\n1. 单一文件方案缺乏可扩展性，随着项目复杂度提升，信息会不断膨胀。\n2. 将所有信息一次性暴露给 Agent，会引入大量与当前任务无关的内容，降低上下文效率。\n3. 分层加载可以让常驻信息保持最小化，把专业知识和历史资料延迟到真正需要时再引入。\n4. 渐进式披露有助于让 Agent 始终围绕当前任务工作，减少噪声，提高执行稳定性。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**Harness Engineering 的四大支柱**",
+        "Harness Engineering",
+        "上下文架构",
+        "渐进式披露",
+        "上下文管理"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "e8a53f5323f2a7af",
+      "type": "八股",
+      "question": "Agent 专业化的核心原则是什么？为什么专业化且权限受限的 Agent 往往优于拥有全局权限的通用型 Agent？",
+      "answer": "核心原则是：专注于特定垂直领域且权限受限的专业 Agent，其表现优于拥有全局权限的通用型 Agent。\n\n原因包括：\n1. 专业 Agent 的职责边界更清晰，只处理特定类型的问题，决策空间更小。\n2. 每个专业 Agent 携带的无关信息更少，因此上下文更纯净。\n3. 权限受限可以降低误操作范围，使执行更可控。\n4. 专业化本质上也是一种高效的上下文管理策略，能够让 Agent 更稳定地运行在高效的“智能区（Smart Zone）”内。\n5. 通过子 Agent 分工，还可以避免主 Agent 被过多细节污染，保持主流程上下文整洁。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**Harness Engineering 的四大支柱**",
+        "Harness Engineering",
+        "Agent 专业化",
+        "权限控制",
+        "上下文管理"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "0625d133b2529f72",
+      "type": "八股",
+      "question": "持久化记忆的核心原则是什么？新的 Agent 会话应如何重建上下文？",
+      "answer": "核心原则是：项目进度应持久化存储于文件系统中，而不是依赖易失的上下文窗口。\n\n新的 Agent 会话应从零状态开始，通过读取文件系统中的制品来重建准确上下文，而不是假设模型仍然保留上一次会话的内部状态。也就是说，系统应把关键进度、脚本、状态文件、历史提交等外化为文件或仓库制品，在每次新会话启动时重新读取这些内容，以恢复工作现场。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**Harness Engineering 的四大支柱**",
+        "Harness Engineering",
+        "持久化记忆",
+        "Persistent Memory",
+        "文件系统"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "8716ca43d98053b2",
+      "type": "八股",
+      "question": "结构化执行的核心原则是什么？标准执行序列是什么？",
+      "answer": "结构化执行的核心原则是：严格分离“思考”与“执行”阶段。研究与规划必须在受控环境中完成，后续执行动作要严格遵循已验证的计划，最终再通过自动化反馈机制和人工审查完成验证。\n\n标准执行序列是：理解 → 规划 → 执行 → 验证。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**Harness Engineering 的四大支柱**",
+        "Harness Engineering",
+        "结构化执行",
+        "执行流程",
+        "工作流"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "14e6d18390dbde3a",
+      "type": "八股",
+      "question": "结构化执行中的“验证”环节通常由哪些机制组成？",
+      "answer": "“验证”环节通常由两类机制共同组成：\n1. 自动化反馈机制，例如测试用例、Linter、CI 流水线。\n2. 人工审查。\n\n两者结合可以同时覆盖自动化质量检查与人工判断，从而提高结果可靠性。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**Harness Engineering 的四大支柱**",
+        "Harness Engineering",
+        "结构化执行",
+        "验证机制",
+        "CI"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "455a9ceb71af5686",
+      "type": "八股",
+      "question": "为什么说人工检查点中“审查计划的效率远高于审查代码”？其工程价值体现在哪里？",
+      "answer": "“审查计划的效率远高于审查代码”的原因在于：\n1. 计划比代码更抽象、体量更小，人工更容易快速判断方向是否正确。\n2. 如果规格和计划定义准确，后续代码实现通常会更可靠。\n3. 如果规格存在偏差，人工可以在执行前或执行早期及时纠偏。\n4. 这样可以避免系统先生成数百行无效代码后再返工，从而显著降低试错成本。\n\n其工程价值在于：把人工干预前移到高杠杆阶段，用较低成本阻断错误扩散。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**Harness Engineering 的四大支柱**",
+        "Harness Engineering",
+        "结构化执行",
+        "人工检查点",
+        "工程权衡"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "bb5562496fcfeb84",
+      "type": "八股",
+      "question": "在基于 Agent 的大规模代码生成实践中，如何机械化地执行架构约束？请给出一种分层依赖约束示例，并说明仅靠文档约束为什么不够。",
+      "answer": "机械化执行架构约束的做法是：先明确系统的分层与允许的依赖流向，再通过自动化工具在提交、测试或集成流程中强制检查违规行为。一个典型的分层依赖流向示例是：Types → Config → Repo → Service → Runtime → UI。实现上可以结合自定义 Linter 与结构化测试，对非法依赖、越层调用或模块边界破坏进行自动检测。仅靠文档约束不够，因为文档只能描述规范，不能阻止违规代码进入仓库；在 Agent 持续生成代码的场景下，如果没有可执行、可自动拦截的机制，Agent 很容易逐步偏离既定架构。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**先进团队的实战案例**",
+        "Agent",
+        "Harness Engineering",
+        "架构约束",
+        "Linter",
+        "工程实现"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "63869fcc5a49e2b4",
+      "type": "八股",
+      "question": "为什么在 Agent 工程体系中应将代码仓库作为唯一事实源？哪些类型的信息如果散落在外部协作工具中，会降低 Agent 的可用性？",
+      "answer": "代码仓库应作为唯一事实源，因为 Agent 能稳定消费、检索和利用的是受版本控制、结构化、可追踪的制品。只有把团队知识统一沉淀到仓库中，Agent 才能在生成、修改和验证代码时基于一致的信息源工作。相反，若知识散落在 Slack 讨论、Google Docs 等外部协作工具中，这些信息通常不具备统一版本控制、可执行约束和稳定检索路径，对 Agent 来说基本不可用或难以可靠利用。因此，规范、配置、接口约定、运行说明等团队知识都应尽量以仓库内制品的形式存在。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**先进团队的实战案例**",
+        "Agent",
+        "代码仓库",
+        "事实源",
+        "版本控制",
+        "知识管理"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "b0a77204e1acb0ea",
+      "type": "八股",
+      "question": "在 Agent 驱动的软件开发中，如何把可观测性连接到 Agent，并将模糊性能目标转化为可执行任务？",
+      "answer": "做法是把运行时可观测能力直接暴露给 Agent，使其能够自主采集和分析系统状态。例如，将 Chrome DevTools 深度集成到运行时环境中，让 Agent 具备捕获 DOM 快照和屏幕截图的能力；同时开放日志与指标查询权限，使 Agent 能读取性能数据、定位瓶颈并验证优化结果。这样，像“将启动时间优化至 800ms 以下”这类原本较模糊的需求，就可以被转化为明确的、可量化的目标：Agent 先读取当前启动耗时，再根据日志、指标和页面状态定位问题，实施修改后重新测量，直到满足阈值要求。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**先进团队的实战案例**",
+        "Agent",
+        "可观测性",
+        "Chrome DevTools",
+        "日志",
+        "性能优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "9f6812dcdd77ad49",
+      "type": "八股",
+      "question": "自定义 Linter 在 Agent 工程中除了检测违规外，还可以承担什么作用？这种设计对 Agent 行为有什么直接影响？",
+      "answer": "自定义 Linter 除了检测架构或编码违规外，还可以在报错信息中直接提供修复方案。也就是说，错误消息不仅用于标记问题，还承担了对 Agent 的实时教学作用。这样的设计会让 Agent 在被拦截时立即获得可执行的纠正路径，从而减少反复试错，提高修复效率，并帮助其更稳定地遵循既定架构约束。",
+      "category": "Agent Harness 范式详解",
+      "tags": [
+        "**先进团队的实战案例**",
+        "Linter",
+        "Agent",
+        "错误反馈",
+        "自动修复",
+        "工程实践"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Harness_范式详解__ggld5godq6sb01w2.md"
+    },
+    {
+      "id": "b8b267fad68f6bdd",
+      "type": "八股",
+      "question": "Skill 与 MCP 的区别是什么？",
+      "answer": "两者关注点不同：\n1. MCP 是一种开放标准协议，关注 AI 如何以统一方式调用外部工具、数据和服务，本身不定义任务逻辑或执行流程。\n2. Skill 是面向具体任务的能力封装，会把执行方法、工具调用方式以及相关知识材料打包成一个完整的能力扩展包，使 Agent 具备稳定、可复用的做事方法。\n3. 因此，MCP 更偏向“怎么接入外部能力”的协议层；Skill 更偏向“如何完成某类工作”的任务能力层。",
+      "category": "Agent Skills 终极指南 从入门到精通",
+      "tags": [
+        "① Agent Skills 终极指南：从入门到精通",
+        "Skills 是什么：从概念来源到运作原理",
+        "Agent",
+        "Skills",
+        "MCP",
+        "协议",
+        "能力封装"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Skills_终极指南_从入门到精通__cs5muusy2a8gq3ri.md"
+    },
+    {
+      "id": "1e09c301f610d9e7",
+      "type": "八股",
+      "question": "什么是 Agent Skills 的渐进式披露机制？请说明其分层加载方式以及它要解决的核心问题。",
+      "answer": "渐进式披露机制是一种按需分层加载 Skill 上下文的运行机制，用来解决 Context 过长导致模型能力下降的问题。其加载方式分为三层：1）Level 1（元数据）：始终加载，只包含 Skill 的名称与用途描述，规模约 100 tokens；2）Level 2（指令）：当 Skill 被触发时，加载 SKILL.md 正文；3）Level 3（资源/代码）：子技能文档、脚本、参考文档等资源按需动态读取。通过这种分层加载方式，Agent 可以安装很多 Skills，而不会一次性把所有内容塞进上下文，从而避免上下文膨胀拖垮模型性能。",
+      "category": "Agent Skills 终极指南 从入门到精通",
+      "tags": [
+        "① Agent Skills 终极指南：从入门到精通",
+        "Skills 的真实价值：垂直 Agent 的未来态",
+        "Agent",
+        "Skills",
+        "上下文工程",
+        "渐进式披露",
+        "Context"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Skills_终极指南_从入门到精通__cs5muusy2a8gq3ri.md"
+    },
+    {
+      "id": "00c26bf02f24068b",
+      "type": "八股",
+      "question": "相比 Workflow 或传统程序，通用 Agent + Skill 在处理边缘情况和异常输入时的机制差异是什么？",
+      "answer": "Workflow 或传统程序通常假设所有情况都能被预设，因此当输入格式异常或出现边缘情况时，容易报错或失效。通用 Agent + Skill 的机制不同：它可以在统一对话框中接收各类数据，自主决定调用哪个 Skill，或者临时编写脚本进行格式转换，并基于 LLM 的推理能力弥合边缘问题。因此它不是依赖固定分支和预设规则，而是通过“观察-规划-执行”的动态智能来适配实际输入。",
+      "category": "Agent Skills 终极指南 从入门到精通",
+      "tags": [
+        "① Agent Skills 终极指南：从入门到精通",
+        "Skills 的真实价值：垂直 Agent 的未来态",
+        "Agent",
+        "Skills",
+        "Workflow",
+        "边缘情况",
+        "LLM推理"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agent_Skills_终极指南_从入门到精通__cs5muusy2a8gq3ri.md"
+    },
+    {
+      "id": "bea7f287be9c47c9",
+      "type": "八股",
+      "question": "为什么说 Agent Skills 本质上是一种 Context 工程？",
+      "answer": "因为 Skill 的核心作用不是固定流程编排，而是通过组织、分层和按需注入上下文，让 Agent 在任务执行时获得合适的指令、资源和能力。它既可以表现为引导思考的 Prompt，也可以包含可执行脚本、参考文档、子技能等内容，并且支持多 Skill 组合与渐进式披露加载。因此，Skills 的本质是围绕上下文组织与调用进行的工程化设计。",
+      "category": "Agent Skills 终极指南 从入门到精通",
+      "tags": [
+        "① Agent Skills 终极指南：从入门到精通",
+        "Skills 的真实价值：垂直 Agent 的未来态",
+        "Skills",
+        "Context工程",
+        "Prompt",
+        "Agent架构"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agent_Skills_终极指南_从入门到精通__cs5muusy2a8gq3ri.md"
+    },
+    {
+      "id": "bb2a03dcdb9a81a1",
+      "type": "八股",
+      "question": "监督微调数据（SFT）在大模型工具调用能力训练中的作用是什么？主要解决什么问题？",
+      "answer": "监督微调数据（SFT）是模型学会调用工具能力的基石，其核心作用是为模型提供大量标准答案式的训练样本。它主要用于：1. 教会模型识别何时需要使用工具；2. 教会模型理解工具的参数含义；3. 教会模型掌握正确的工具调用格式。SFT主要解决的是工具调用能力“会不会用”和“用得对不对”的问题，即确保能力的有无与正确性。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "前言：为何Agent工具调用数据合成至关重要？",
+        "Agent",
+        "工具调用",
+        "SFT",
+        "训练数据",
+        "监督微调"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "f36106deb010d369",
+      "type": "八股",
+      "question": "强化学习数据（RL）在工具调用训练中的作用是什么？与SFT的目标有何区别？",
+      "answer": "强化学习数据（RL）用于精进模型的工具调用能力，是能力提升的阶梯。其训练方式是让模型在模拟或真实环境中进行实践，并根据执行结果的好坏通过奖励信号调整决策策略。与SFT相比，RL不再主要解决“会不会调用、调用格式是否正确”的基础问题，而是进一步提升模型工具调用的熟练度、灵活性和鲁棒性。简而言之，SFT解决基础正确性，RL解决实践中的策略优化与能力精进。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "前言：为何Agent工具调用数据合成至关重要？",
+        "Agent",
+        "工具调用",
+        "RL",
+        "强化学习",
+        "SFT对比"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "723944f6a37e976b",
+      "type": "八股",
+      "question": "工具调用场景中，标准化工具函数定义通常包含哪些核心字段？各字段的作用是什么？",
+      "answer": "标准化工具函数定义通常采用结构化格式，核心字段包括：\n1. type：固定为 \"function\"，表示该工具定义的是一个函数型工具。\n2. function：Object 类型，承载具体函数定义。\n3. name：工具函数名称，通常建议与实际函数名一致，例如 get_current_weather、get_current_time。\n4. description：对工具功能的描述，模型会参考该字段判断是否应调用该工具。\n5. parameters：对输入参数的结构化描述，模型会参考该字段进行参数抽取；如果工具不需要输入参数，则可以不指定该字段。\n其中 parameters 内部通常还包括：\n- type：固定为 \"object\"，表示参数整体是对象结构。\n- properties：Object 类型，描述每个参数的名称、数据类型和说明；键是参数名，值是该参数的类型与描述。\n- required：Array 类型，指定哪些参数是必填项。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "工具调用",
+        "工具定义",
+        "JSON Schema",
+        "SFT数据合成"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "9ca4ae71c0035867",
+      "type": "八股",
+      "question": "在工具调用的数据合成中，description、parameters 和 required 三个字段分别如何影响模型的工具选择与参数生成？",
+      "answer": "这三个字段分别作用于工具选择和参数抽取两个关键环节：\n1. description：用于描述工具的功能语义。模型会参考该字段判断当前用户需求是否适合调用该工具，因此它直接影响工具选择。\n2. parameters：用于描述工具输入参数的结构、类型和含义。模型会依据该字段从用户请求中提取参数，并组织成符合工具接口要求的输入。\n3. required：用于声明哪些参数是必填项。模型在生成工具调用参数时，需要确保这些字段被补齐，否则调用可能不完整或无效。\n因此，description 主要影响“选哪个工具”，parameters 和 required 主要影响“如何正确构造调用参数”。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "工具调用",
+        "参数抽取",
+        "工具选择",
+        "SFT数据合成"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "d23101b62570ead8",
+      "type": "八股",
+      "question": "为什么在通过在线爬取构建工具库时，要过滤掉需要复杂第三方凭证或密钥才能调用的 Server？",
+      "answer": "过滤掉需要复杂第三方凭证或密钥才能调用的 Server，主要是为了保证合成数据的可复现性。因为这类 Server 往往依赖外部授权条件，调用门槛高、环境依赖强，不利于稳定批量生成和复现实验结果。保留可直接访问、调用条件简单的远程 Server，更适合作为大规模工具调用数据合成的可靠工具源。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "工具库合成",
+        "可复现性",
+        "MCP",
+        "数据筛选"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "965abaa16fca6e98",
+      "type": "八股",
+      "question": "在大规模工具调用 SFT 数据合成中，工具库为什么需要覆盖多样化的应用场景？",
+      "answer": "工具库需要覆盖多样化的应用场景，因为工具的多样性与复杂程度会直接决定后续合成任务与交互轨迹的广度与深度。若工具库覆盖的领域和功能不足，生成的任务类型会受限，交互轨迹也会缺乏复杂性和代表性；反之，领域和功能足够丰富，才能支撑更广泛、更复杂的任务合成。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "SFT数据合成",
+        "工具库",
+        "任务合成",
+        "场景覆盖"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "20603530f5378d04",
+      "type": "八股",
+      "question": "大语言模型的工具调用能力本质上包含哪些核心环节？",
+      "answer": "大语言模型的工具调用能力本质上不是简单的接口开放或格式输出训练，而是一套“环境感知-决策规划-执行反馈”的完整智能体系，核心环节包括：1）判断调用时机：识别当前任务是否需要借助工具；2）工具选择：从工具库中匹配最优工具；3）指令构造：生成合规的工具调用指令并正确填充参数；4）结果理解：理解工具返回结果；5）结果转化：将工具返回结果整合为有效的最终输出。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第一部分：业界工具调用数据合成方法总览",
+        "工具调用",
+        "LLM",
+        "能力本质",
+        "机制"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "06b40637785a445e",
+      "type": "八股",
+      "question": "工具调用 SFT 数据合成通常包含哪些核心模块？各模块职责是什么？",
+      "answer": "工具调用 SFT 数据合成通常包含四个核心模块：1）工具库合成：构建丰富且结构化的工具定义集合，如 API 或函数，来源可以是开源代码、真实产品文档的爬取解析，或由大模型模拟生成；2）任务合成：针对给定工具库生成大量、多样化且必须依赖工具完成的用户查询或目标任务，通常由大模型基于工具描述进行情景化创作；3）轨迹合成：为每个任务生成正确的解决方案轨迹，通常包含模型思考、工具调用、工具返回结果和最终回复，一般由更强教师模型或精心设计的推理流程生成；4）质量筛选：通过规则、模型打分或交叉验证等方式，对任务和轨迹进行过滤、去重与修正，以保证数据质量和可靠性。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第一部分：业界工具调用数据合成方法总览",
+        "SFT",
+        "数据合成",
+        "工具调用",
+        "数据管线"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "a14e32e1292b98c6",
+      "type": "八股",
+      "question": "为什么仅靠 SFT 训练的工具调用模型在真实环境中往往较脆弱？RL 训练主要补足哪些方面？",
+      "answer": "仅靠 SFT 数据训练的模型，在面对复杂、开放或存在不确定性的真实环境时往往较脆弱，因为 SFT 主要学习标准答案或示范轨迹，难以充分覆盖真实环境中的异常、变化和不确定性。RL 训练主要通过让模型在模拟环境中实践，并依据奖励优化决策策略来补足这一问题。其核心补足点包括：1）环境模拟：覆盖工具调用失败、返回意外结果、网络延迟、多个可行方案等情况；2）奖励函数设计：从任务成功完成、步骤效率、异常处理质量、安全规范等多个维度定义“好”的行为。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第一部分：业界工具调用数据合成方法总览",
+        "RL",
+        "SFT",
+        "工具调用",
+        "鲁棒性"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "1d9e96f3936271f4",
+      "type": "八股",
+      "question": "工具调用 RL 数据合成的两个核心组成部分是什么？分别负责什么？",
+      "answer": "工具调用 RL 数据合成的两个核心组成部分是交互环境和奖励信号。1）交互环境：用于模拟工具调用中的各种真实情况，例如调用失败、返回意外结果、网络延迟以及存在多个可行方案等；2）奖励信号：用于定义什么是好的行为，评价维度包括任务是否成功完成、步骤是否高效、异常处理是否优雅、是否符合安全规范等。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第一部分：业界工具调用数据合成方法总览",
+        "RL",
+        "奖励函数",
+        "交互环境",
+        "工具调用"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "824dafae3cf6e2f6",
+      "type": "八股",
+      "question": "轨迹合成中的真实沙盒执行适用于哪些场景？它能生成什么类型的高质量数据？",
+      "answer": "真实沙盒执行适用于代码执行、软件操作等需要真实运行环境反馈的场景。其做法是将代码或操作放入沙盒环境中实际执行，捕获真实输出与错误信息。这样可以生成同时包含成功路径和失败路径的高质量数据，因为执行结果不是模型臆造，而是来自真实环境反馈。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "轨迹合成",
+        "沙盒执行",
+        "代码执行",
+        "环境反馈"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "af0ed58ce262ef9b",
+      "type": "八股",
+      "question": "格式合规性校验通常使用哪些技术手段？主要过滤哪些类型的错误？",
+      "answer": "格式合规性校验通常使用两类技术手段：\n1. JSON Schema；\n2. 正则表达式。\n它们主要用于过滤基础语法错误，确保数据机器可读。典型错误包括日期格式错误、邮箱符号错误等结构化字段不符合规范的问题。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "格式校验",
+        "JSON Schema",
+        "正则表达式",
+        "数据质量"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "7a1a27d8e9dcaf4c",
+      "type": "八股",
+      "question": "逻辑准确性校验中的“LLM 即裁判”主要评估哪些方面？",
+      "answer": "“LLM 即裁判”主要评估以下方面：\n1. 工具匹配度：所选工具是否适合当前任务；\n2. 参数准确性：传入工具的参数是否正确、是否满足任务要求；\n3. 逻辑连贯性：整个调用与推理过程是否前后一致、符合任务逻辑。\n其目标是从逻辑层面判断轨迹是否正确，而不仅仅是格式是否合规。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "LLM即裁判",
+        "逻辑校验",
+        "工具匹配",
+        "参数准确性"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "af0490441f9bb63c",
+      "type": "八股",
+      "question": "任务完成度校验中的“完整性”和“简洁性”分别指什么？",
+      "answer": "任务完成度校验中的两个核心指标是：\n1. 完整性：判断智能体是否满足了用户提出的所有需求，是否遗漏关键目标或步骤。\n2. 简洁性：判断智能体是否以高效方式完成任务，避免不必要的冗余步骤。\n这类校验的目标是确保智能体真正以“解决问题”为导向，而不是只生成表面上看似合理的过程。",
+      "category": "Agentic数据合成 工具调用数据合成详解",
+      "tags": [
+        "① Agentic数据合成：工具调用数据合成详解",
+        "第二部分：大规模工具调用SFT数据合成方法全解析",
+        "任务完成度",
+        "完整性",
+        "简洁性",
+        "数据校验"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_Agentic数据合成_工具调用数据合成详解__guhrym6wghgkzu9d.md"
+    },
+    {
+      "id": "8e2e2e34d685805f",
+      "type": "八股",
+      "question": "遗传进化池循环的核心机制是什么？请说明其基本迭代流程。",
+      "answer": "遗传进化池循环的核心机制是：维护一个候选种群，通过选择优秀个体、对其施加突变、评估后代适应度，并逐代更新种群，使整体解不断向更优方向进化。其基本流程通常包括：1）维护当前候选种群；2）从种群中选择表现较好的个体作为起点；3）对选中的个体进行突变，文中场景下突变由 LLM 完成；4）评估新生成后代的适应度；5）根据评估结果更新种群；6）重复上述过程，推动种群逐代优化。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.3 遗传进化池循环</font>",
+        "遗传进化池循环",
+        "种群优化",
+        "适应度评估",
+        "LLM突变"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "af6486a78655d2f3",
+      "type": "八股",
+      "question": "遗传进化池循环与树搜索在结构组织上的关键区别是什么？",
+      "answer": "关键区别在于个体之间的结构约束不同。树搜索通常具有严格的父子拓扑关系，节点扩展沿着树结构进行；而遗传进化池中的个体之间没有严格的父子拓扑，任何个体都可以被选为突变的起点，多个个体还可以进行交叉组合。因此，进化池更强调种群层面的并行探索与重组，而不是沿固定树结构逐层展开。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.3 遗传进化池循环</font>",
+        "遗传进化池循环",
+        "树搜索",
+        "拓扑结构",
+        "交叉组合"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "a534dbbdf6347d51",
+      "type": "八股",
+      "question": "FunSearch 中 MAP-Elites 的作用是什么？它如何帮助维持种群多样性？",
+      "answer": "在 FunSearch 中，MAP-Elites 用于维护种群。它的作用不是只保留全局最优个体，而是在多个行为维度划分出的每个 niche 中都保留该 niche 内的最优个体。这样做的结果是：不同区域、不同类型的候选都能被保留下来，从而避免种群过早收敛到单一方向，维持搜索过程中的多样性。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.3 遗传进化池循环</font>",
+        "FunSearch",
+        "MAP-Elites",
+        "种群管理",
+        "多样性维护",
+        "niche"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "2c7f802593b0d4c2",
+      "type": "八股",
+      "question": "FunSearch 中哪些搜索规则由人工硬编码，LLM 在其中承担什么职责？",
+      "answer": "FunSearch 中的搜索规则由人工硬编码，包括选择策略、评估标准和种群管理。LLM 在该系统中的职责仅是生成变体，也就是对候选进行变异式生成，而不负责决定如何选择个体、如何评估优劣以及如何维护整个种群。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.3 遗传进化池循环</font>",
+        "FunSearch",
+        "LLM职责",
+        "选择策略",
+        "评估标准",
+        "种群管理"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "c02a3504c12599b7",
+      "type": "八股",
+      "question": "GEPA 如何利用文本反馈驱动突变方向？请说明其处理流程。",
+      "answer": "GEPA 用文本反馈替代标量奖励来驱动突变方向。其处理流程是：1）先对当前候选执行 rollout；2）记录完整执行轨迹，包含每一步的推理过程、工具调用和输出；3）让 LLM 阅读这些轨迹；4）由 LLM 对问题进行诊断、归因原因，并提出有针对性的修改方案；5）根据这些文本化分析结果引导后续突变。与仅依赖单一标量奖励相比，这种方式提供了更具体的修改依据。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.3 遗传进化池循环</font>",
+        "GEPA",
+        "文本反馈",
+        "rollout",
+        "执行轨迹",
+        "突变引导"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "9845b8ba87038458",
+      "type": "八股",
+      "question": "GEPA 记录的执行轨迹包含哪些信息？这些信息在系统中用于什么目的？",
+      "answer": "GEPA 记录的执行轨迹包括每一步的推理过程、工具调用和输出。这些信息用于让 LLM 回看候选的完整执行过程，从而诊断问题、分析原因，并提出有针对性的修改方案，进而用文本反馈指导后续突变方向。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.3 遗传进化池循环</font>",
+        "GEPA",
+        "执行轨迹",
+        "推理过程",
+        "工具调用",
+        "输出"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "b7456b87c1bd8737",
+      "type": "八股",
+      "question": "AIDE 为什么要求 Improve 阶段采用 atomic improvement？",
+      "answer": "AIDE 在 Improve 阶段要求采用 atomic improvement，即每次只做一个单一、可验证的改动。这样做的目的，是便于对效果进行清晰归因：如果指标发生变化，可以明确判断是这一次具体改动带来的结果，而不是多个改动混杂后无法区分贡献。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.2 树搜索循环</font>",
+        "AIDE",
+        "Improve",
+        "atomic improvement",
+        "归因分析"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "619bdd45c40aa14d",
+      "type": "八股",
+      "question": "AIDE 使用贪婪策略选择 Improve 节点时，有什么优点和缺点？",
+      "answer": "AIDE 的贪婪策略是总是选择当前最优节点进行 Improve。\n优点：收敛速度快，因为资源会集中投入到当前表现最好的方案上。\n缺点：容易导致搜索偏置。如果某个早期 draft 很快取得较好指标，后续的大部分 Improve 都会集中在它的子树上，其他 draft 对应的子树可能长期得不到探索，出现“饿死”现象，从而降低整体搜索的多样性。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.2 树搜索循环</font>",
+        "AIDE",
+        "贪婪策略",
+        "Improve",
+        "搜索偏置"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "0592e797f41be4d0",
+      "type": "八股",
+      "question": "在基于 MCTS 的节点选择中，UCB 公式各项分别表示什么？它如何平衡探索与利用？",
+      "answer": "基于 MCTS 的节点选择可使用 UCB 公式：\nUCB(node) = r̄ + C · sqrt(ln N_total / N_node)\n其中：\n1. r̄ 表示该节点的平均收益或当前已知表现，体现“利用”，即优先选择已经证明效果较好的节点。\n2. sqrt(ln N_total / N_node) 表示探索项，节点被访问次数 N_node 越少，该项越大，体现“探索”，即鼓励系统尝试尚未充分访问的节点。\n3. C 是平衡系数，用于控制探索与利用之间的权重。\n因此，UCB 既会偏向已知表现好的节点，也会给访问较少的节点额外分数，避免搜索过早集中在单一子树上。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.2 树搜索循环</font>",
+        "MCTS",
+        "UCB",
+        "探索与利用",
+        "节点选择"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "4bf957d6213944e2",
+      "type": "八股",
+      "question": "为什么 MCTS 的 UCB 选择策略能够缓解贪婪策略下某些子树被“饿死”的问题？",
+      "answer": "贪婪策略只关注当前最优节点，容易把后续改进全部集中到某一条早期表现较好的子树上，导致其他子树长期得不到访问。MCTS 的 UCB 策略在评分中加入了探索项，对访问次数少的节点给予额外加分。因此，即使某个 draft 的初始指标较差，只要它被访问得少，UCB 分数仍可能上升，系统就会偶尔去探索它。这样可以避免搜索资源过度集中在单一子树上，从而缓解“饿死”问题。",
+      "category": "AutoResearch 四种常见循环和通用分析框架",
+      "tags": [
+        "<font style=\"color:rgb(0, 0, 0);\">01 · 四种循环</font>",
+        "<font style=\"color:rgb(0, 0, 0);\">1.2 树搜索循环</font>",
+        "MCTS",
+        "UCB",
+        "贪婪策略",
+        "搜索树",
+        "探索"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_AutoResearch_四种常见循环和通用分析框架__ge6y1z5k8tpwg45t.md"
+    },
+    {
+      "id": "fd7034fb8bf52db9",
+      "type": "八股",
+      "question": "nanobot 的双层记忆系统由哪两部分组成，各自作用是什么？",
+      "answer": "nanobot 的双层记忆系统由两部分组成：1. 长期事实记忆：用于保存相对稳定、可长期复用的事实信息。2. 可检索的历史日志：用于保存历史交互与执行过程，并在需要时进行检索。两者结合的作用是保障上下文连贯性，使 Agent 在后续推理和交互中既能利用长期事实，也能回溯历史过程。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "① nanobot详解：轻量化openclaw",
+        "nanobot",
+        "记忆系统",
+        "长期记忆",
+        "历史日志",
+        "上下文"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "8d56147e8d88b6c1",
+      "type": "八股",
+      "question": "nanobot 在工具扩展与外部能力接入方面采用了什么机制？该机制带来什么效果？",
+      "answer": "nanobot 原生支持 MCP 协议。通过 MCP 协议，系统可以动态接入外部工具，从而获得较强的扩展能力。也就是说，工具能力不必全部内置在框架内部，而是可以通过协议化方式按需接入。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "① nanobot详解：轻量化openclaw",
+        "nanobot",
+        "MCP",
+        "工具调用",
+        "扩展性",
+        "协议"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "0d169fbf12fc1341",
+      "type": "八股",
+      "question": "在 nanobot 配置中，`agents.defaults` 下的 `workspace`、`model`、`maxTokens`、`temperature`、`maxToolIterations` 分别表示什么？",
+      "answer": "`agents.defaults` 用于定义 Agent 的默认参数，各字段含义如下：1. `workspace`：Agent 默认使用的工作区路径；2. `model`：默认使用的模型名称；3. `maxTokens`：单次生成允许的最大 token 数；4. `temperature`：生成时的随机性参数，数值越高通常输出越发散；5. `maxToolIterations`：一次任务处理中允许的最大工具调用迭代次数。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "使用 uv 安装",
+        "nanobot",
+        "agents",
+        "参数配置",
+        "模型参数"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "3c9628bfc8e557db",
+      "type": "八股",
+      "question": "如何在 nanobot 中配置火山方舟兼容的 OpenAI Provider？需要设置哪些关键字段？",
+      "answer": "可以在 `providers` 配置项中使用 `openai` 作为提供方名称，并设置以下关键字段：1. `apiKey`：访问模型服务所需的密钥；2. `apiBase`：模型服务的基础地址，例如 `https://ark.cn-beijing.volces.com/api/v3`。通过这种方式即可将火山方舟以 OpenAI 兼容接口形式接入 nanobot。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "使用 uv 安装",
+        "nanobot",
+        "providers",
+        "OpenAI兼容",
+        "火山方舟"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "713da32d31267dda",
+      "type": "八股",
+      "question": "在 nanobot 中集成飞书渠道时，`channels.feishu` 配置下有哪些字段，它们分别起什么作用？",
+      "answer": "`channels.feishu` 用于配置飞书聊天渠道，示例中包含以下字段：1. `enabled`：是否启用飞书渠道；2. `appId`：飞书应用的 App ID；3. `appSecret`：飞书应用的密钥；4. `encryptKey`：事件加密相关配置；5. `verificationToken`：事件校验令牌；6. `allowFrom`：允许接入的来源列表，示例中 `[*]` 表示允许所有来源。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "使用 uv 安装",
+        "nanobot",
+        "飞书",
+        "channels",
+        "渠道配置"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "e9d85dd393caeeee",
+      "type": "八股",
+      "question": "一个基于 LLM 的工具调用循环通常如何终止？请说明消息、工具定义、工具执行结果在循环中的流转过程。",
+      "answer": "典型流程如下：\n1. 将当前消息列表和工具定义一起发送给 LLM。\n2. 如果 LLM 返回了工具调用请求，则依次执行对应工具，并把每次工具执行结果追加到消息列表中，作为后续轮次的上下文。\n3. 追加结果后继续下一轮循环，再次把更新后的消息列表发送给 LLM。\n4. 如果 LLM 返回的是纯文本最终回复而不是工具调用，则将该回复作为最终结果，结束循环。\n\n因此，循环的终止条件是：LLM 不再请求调用工具，而是直接给出最终文本回复。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/agent/loop.py",
+        "nanobot Guidelines",
+        "Agent",
+        "LLM",
+        "工具调用",
+        "循环控制",
+        "上下文管理"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "e4c7a4990fdff9f8",
+      "type": "八股",
+      "question": "如果 LLM 返回错误信息，为什么不应将该错误消息保存到会话历史中？",
+      "answer": "当 LLM 返回错误时，不将错误消息写入会话历史，是为了避免污染后续上下文。如果把错误内容加入历史消息，后续轮次的模型推理可能会受到这些无效或异常信息干扰，从而影响后续工具调用和最终回复质量。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/agent/loop.py",
+        "nanobot Guidelines",
+        "Agent",
+        "上下文管理",
+        "错误处理",
+        "会话历史"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "f58e26001f5c5365",
+      "type": "八股",
+      "question": "Skills 的两级加载策略是怎样设计的？它解决了什么问题？",
+      "answer": "Skills 采用两级加载策略：1. 对于标记为 `always=true` 的技能，将其完整内容直接注入 System Prompt。2. 对于其他技能，只在提示词中提供 XML 格式的摘要清单，不直接注入全文。3. 当 Agent 需要使用某个非 always 技能时，再通过 `read_file` 工具按需读取完整内容。该设计的核心目的是优化 Token 使用：常用且必须始终可见的技能直接注入，其他技能延迟加载，减少上下文长度和不必要的提示词开销。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/agent/loop.py",
+        "nanobot Guidelines",
+        "Skills",
+        "Prompt构建",
+        "Token优化",
+        "按需加载"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "03991d2d6e5d6632",
+      "type": "八股",
+      "question": "ReAct 推理循环的迭代控制是如何实现的？",
+      "answer": "ReAct 推理循环通过一个 `while iteration < self.max_iterations` 的条件进行控制。循环开始前将 `iteration` 初始化为 0，每次进入循环先执行 `iteration += 1`，因此总迭代次数不会超过 `self.max_iterations`。这种实现方式用于限制 Agent 推理与工具调用的最大轮数，防止无限循环。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/agent/loop.py",
+        "nanobot Guidelines",
+        "ReAct",
+        "推理循环",
+        "迭代控制",
+        "工程实现"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "ff0832772e2beb94",
+      "type": "八股",
+      "question": "会话管理中 append-only（只追加不修改）原则指的是什么？",
+      "answer": "append-only 原则指会话中的历史消息一旦写入，就不再原地修改或删除；每轮对话结束后，只将新产生的消息追加保存到当前会话中。该设计用于保持会话历史的稳定性和一致性。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**会话管理**",
+        "会话管理",
+        "append-only",
+        "消息持久化"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "96d6a8c3c47c477b",
+      "type": "八股",
+      "question": "为什么会话消息列表要采用 append-only（只追加）策略？这种设计与 Prompt Cache 的关系是什么？",
+      "answer": "采用 append-only 策略是为了适配现代 LLM API 的 Prompt Cache 机制。当前后两次请求的前缀完全一致时，Provider 可以复用之前的 KV Cache，从而显著降低首 Token 延迟和 API 成本。若对历史消息进行修改或删除，会破坏前缀一致性，导致缓存整体失效。因此，会话消息只能追加，不能原地改写或删除。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/session/manager.py",
+        "Session",
+        "Prompt Cache",
+        "KV Cache",
+        "上下文管理"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "09a0c824b26a0108",
+      "type": "八股",
+      "question": "为什么要在保存阶段过滤“既无文本内容也未发起工具调用”的 Assistant 消息？",
+      "answer": "因为这类 Assistant 消息对后续对话没有有效信息增量。如果将其保存进会话历史，会把无意义内容带入后续上下文，造成上下文“毒化”。因此系统会在保存阶段直接跳过这类空消息，以保持历史消息的有效性和上下文质量。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/session/manager.py",
+        "Assistant消息",
+        "上下文污染",
+        "消息过滤"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "2c9012eb8aad2108",
+      "type": "八股",
+      "question": "会话消息保存时，哪些消息会被直接跳过而不写入 session.messages？",
+      "answer": "会被直接跳过的情况有两类：\n1. assistant 消息为空且没有 tool_calls：当 role == \"assistant\"，并且 content 为空，同时 entry 中也不存在 tool_calls 时，该消息会被忽略，不保存。\n2. user 消息仅包含运行时上下文标签且没有有效正文：当 role == \"user\"，且 content 是字符串并以运行时上下文标签开头时，会按首次出现的 \"\\n\\n\" 分割；如果分割后的正文部分不存在或去除空白后为空，则该消息会被忽略，不保存。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/session/manager.py",
+        "session",
+        "message-persistence",
+        "assistant",
+        "user",
+        "tool_calls"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "4cef48554074a685",
+      "type": "八股",
+      "question": "保存 tool 角色消息时，过长的工具结果是如何处理的？",
+      "answer": "当消息角色为 tool，且 content 是字符串，并且其长度超过 _TOOL_RESULT_MAX_CHARS 时，系统会对内容进行截断：只保留前 _TOOL_RESULT_MAX_CHARS 个字符，并在末尾追加 \"\\n... (truncated)\"。这样可以限制工具结果写入会话历史时的长度，避免消息内容过大。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/session/manager.py",
+        "tool",
+        "message-truncation",
+        "session",
+        "content-limit"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "c58b9189136bc108",
+      "type": "八股",
+      "question": "保存 user 消息时，遇到带运行时上下文标签的内容会如何处理？",
+      "answer": "当 role 为 user，且 content 是字符串并以 ContextBuilder._RUNTIME_CONTEXT_TAG 开头时，系统不会直接原样保存，而是执行如下处理：\n1. 按首次出现的两个换行符 \"\\n\\n\" 将内容分成两部分。\n2. 如果分割后存在第二部分，且该部分去除空白后仍有内容，则仅保存第二部分作为 entry[\"content\"]。\n3. 如果不存在有效的第二部分，或者第二部分为空白，则该消息直接跳过，不写入会话历史。\n这意味着运行时上下文标签本身不会作为用户消息正文保存，只有其后的有效正文才会进入历史记录。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/session/manager.py",
+        "user",
+        "runtime-context",
+        "message-cleaning",
+        "session"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "f798753df542d4ea",
+      "type": "八股",
+      "question": "消息写入会话历史前，时间戳字段是如何补齐的？",
+      "answer": "在消息最终写入 session.messages 之前，系统会调用 entry.setdefault(\"timestamp\", datetime.now().isoformat())。其含义是：如果消息对象中原本没有 timestamp 字段，则自动补一个当前时间的 ISO 8601 格式时间戳；如果原本已经存在 timestamp，则保留原值，不会覆盖。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/session/manager.py",
+        "timestamp",
+        "session",
+        "message-persistence",
+        "isoformat"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "07042f7aaec79b2a",
+      "type": "八股",
+      "question": "历史消息提取时，为什么要保证返回序列以 user 消息开头？",
+      "answer": "为了满足 LLM API 对消息序列合法性的校验要求。若历史消息序列开头是一条孤立的 tool 消息，而前面缺少与之对应、携带 tool_calls 的 assistant 消息，API 会直接报错。因此在提取历史消息时，需要做对齐处理，强制让返回序列从 user 消息开始，以避免出现非法的 tool 开头消息序列，确保传给模型的上下文结构有效。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "nanobot/session/manager.py",
+        "history",
+        "message-alignment",
+        "user",
+        "tool",
+        "llm-api"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "78ec2dcdc4374731",
+      "type": "八股",
+      "question": "nanobot 的技能系统为什么采用渐进式加载？其具体加载方式是什么？",
+      "answer": "采用渐进式加载的主要目的是优化性能和控制上下文长度。\n\n具体方式是：\n1. 在 System Prompt 中，不直接放入每个技能的完整内容；\n2. 只提供技能的 XML 摘要信息，例如名称、描述、位置以及是否可用；\n3. Agent 只有在实际需要某个技能时，才通过 `read_file` 工具读取该技能的完整内容。\n\n这种方式避免了在初始上下文中加载大量技能全文，从而减少上下文占用并提升整体效率。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Skills 技能系统**",
+        "Skills",
+        "渐进式加载",
+        "System Prompt",
+        "read_file",
+        "性能优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "b4b3b6b7163471c4",
+      "type": "八股",
+      "question": "CronService 的调度核心如何实现最近任务的等待与触发？",
+      "answer": "CronService 的调度核心是 `_arm_timer` 方法。其实现机制包括：1）从当前任务集合中计算最近一个待执行任务的触发时间；2）使用 `asyncio.sleep` 精确等待到该时刻；3）任务数据存储在 `jobs.json` 中；4）系统支持对 `jobs.json` 的外部修改进行自动热重载，每次触发时都会检查文件的 mtime，以便感知任务文件是否发生变化并更新调度状态。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Cron 与 Heartbeat**",
+        "Cron",
+        "CronService",
+        "asyncio",
+        "热重载",
+        "jobs.json"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "c649a3215ea27b70",
+      "type": "八股",
+      "question": "Cron 任务触发后是直接执行预定义操作，还是交给 Agent 处理？其执行上下文如何隔离？",
+      "answer": "Cron 任务触发后，并不是直接执行某个预定义操作，而是将任务指令发送给 Agent，由 Agent 自主决定如何执行。Agent 会像处理普通用户消息一样处理该任务，并可调用所有可用工具完成复杂自然语言指令。为了隔离不同定时任务的上下文，每个 cron 任务都会使用独立的 session，格式为 `cron:{job_id}`，从而保证任务之间的上下文互不干扰。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Cron 与 Heartbeat**",
+        "Cron",
+        "Agent",
+        "Session",
+        "上下文隔离"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "416ad005ad025bb3",
+      "type": "八股",
+      "question": "Cron 系统如何防止定时任务在执行过程中再次创建新任务而导致无限递归？",
+      "answer": "Cron 系统通过 `CronTool` 配合 Python 的 `ContextVar` 实现防重入控制。具体机制是：1）在 cron 任务执行上下文中设置一个标记，表示当前正在执行 cron；2）`ContextVar` 具备协程安全性，因此并发任务之间的上下文彼此独立，不会互相污染；3）如果 Agent 在该 cron 上下文中再次尝试调用 `cron add` 创建新任务，系统会直接返回错误：`cannot schedule new jobs from within a cron job execution`；4）这样可以从根本上避免任务在执行时不断派生新任务，导致无限增殖或递归调度。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Cron 与 Heartbeat**",
+        "Cron",
+        "ContextVar",
+        "协程安全",
+        "防递归",
+        "防重入"
+      ],
+      "difficulty": "难",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "ad9baffb2b1cb187",
+      "type": "八股",
+      "question": "Cron 任务执行完成后，系统如何避免重复向用户发送结果消息？",
+      "answer": "Cron 任务完成后，如果配置了 `deliver=True` 且存在目标渠道，系统会尝试通过 `MessageBus` 将结果发送给用户。但为了避免重复通知，系统会检查 Agent 在本轮处理过程中是否已经通过 `message` 工具主动发送过消息，即检查 `message_tool._sent_in_turn`。如果该标记表明本轮已经发送过消息，则系统不会再次投递结果，从而避免重复发送。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Cron 与 Heartbeat**",
+        "Cron",
+        "MessageBus",
+        "消息去重",
+        "deliver"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "fe1c20fa8f56071b",
+      "type": "八股",
+      "question": "Heartbeat 服务的默认检查周期和检查对象是什么？",
+      "answer": "Heartbeat 是一种周期性唤醒机制，默认每 30 分钟检查一次工作区中的 `HEARTBEAT.md` 文件，用于评估是否存在待处理任务。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Cron 与 Heartbeat**",
+        "Heartbeat",
+        "HEARTBEAT.md",
+        "周期调度"
+      ],
+      "difficulty": "易",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "6dbadc70148739a0",
+      "type": "八股",
+      "question": "Heartbeat 的两阶段 LLM 决策机制是如何工作的？",
+      "answer": "Heartbeat 采用两阶段 LLM 决策机制：\n1）Phase 1：轻量级决策阶段。系统调用 LLM，并通过一个虚拟的 `heartbeat` 工具让模型返回决策结果。返回值中的 `action` 通常为 `skip` 或 `run`，其中 `skip` 表示没有需要处理的任务，`run` 表示存在待执行任务；同时还可返回 `tasks` 信息。\n2）Phase 2：完整执行阶段。只有当 Phase 1 的决策结果为 `run` 时，系统才会触发完整的 Agent 执行流程。\n这种设计将“是否需要执行”的判断与“真正执行任务”分离，减少了不必要的完整 Agent 启动。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Cron 与 Heartbeat**",
+        "Heartbeat",
+        "LLM",
+        "工具调用",
+        "两阶段决策",
+        "Agent"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "3660f9030bb0b22f",
+      "type": "八股",
+      "question": "Heartbeat 为什么采用两阶段 LLM 决策，而不是每次都直接启动完整 Agent 流程？",
+      "answer": "因为大多数情况下 `HEARTBEAT.md` 中并没有待办任务，如果每次检查都直接启动完整 Agent 流程，会产生不必要的计算和 Token 消耗。两阶段设计中，Phase 1 只进行一次轻量级判断，通过虚拟工具调用返回 `skip` 或 `run`，通常只需少量 Token；只有在确实存在任务时，才进入 Phase 2 启动完整 Agent 执行流程。因此，这种设计能够在保证判断灵活性的同时，显著降低无任务场景下的资源消耗。",
+      "category": "nanobot详解 轻量化openclaw",
+      "tags": [
+        "**Cron 与 Heartbeat**",
+        "Heartbeat",
+        "LLM",
+        "Token优化",
+        "执行策略"
+      ],
+      "difficulty": "中",
+      "source_doc": "①_nanobot详解_轻量化openclaw__vrdqleebcrocu8mc.md"
+    },
+    {
+      "id": "9c7303d20e908b84",
+      "type": "八股",
+      "question": "SmoothQuant 为什么能够缓解 LLM 在 INT8 量化下的精度下降问题？",
+      "answer": "SmoothQuant 是一种面向大语言模型的训练后量化（PTQ）方法，可实现 W8A8 量化。它之所以能缓解 INT8 量化带来的精度问题，核心原因在于：\n1. LLM 中权重通常比激活更容易量化，而激活中常存在异常值，导致激活量化误差较大。\n2. SmoothQuant 引入平滑因子 s，对激活异常值进行平滑处理。\n3. 它通过数学上等效的变换，把原本集中在激活上的量化难度转移到权重上。\n4. 由于权重量化相对更稳定，这种“激活难、权重易”的不平衡被重新分配后，整体量化误差显著降低。\n因此，SmoothQuant 的本质是通过平衡激活与权重的量化难度，在保持推理高效的同时提升 INT8 量化后的模型精度。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "量化quantization部分",
+        "LLM",
+        "量化",
+        "SmoothQuant",
+        "PTQ",
+        "INT8"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "04cc875eb99ec972",
+      "type": "八股",
+      "question": "什么是 CUDA shared memory 的 bank conflict？它通常在什么场景下发生？",
+      "answer": "CUDA 共享内存中的 bank conflict 指的是：同一 warp 内多个线程访问落在同一个 bank 上的不同地址，导致原本可并行的访问被串行化，从而降低性能。\n\n常见发生场景包括：\n1. 跨步访问（Strided Access）：\n   - 当线程按固定步长访问共享内存时，如果步长与 bank 数量（通常为 32）成倍数关系，多个线程容易映射到同一 bank。\n   - 典型例子是二维数组按列访问。例如 `float` 类型数组按列访问时，若每行有 32 个元素，则相邻行同一列元素可能落入同一 bank，产生冲突。\n2. 非对齐访问：\n   - 数据结构没有对齐到 bank 边界，线程访问可能跨多个 bank，增加冲突概率，例如结构体填充不当。\n3. 随机访问：\n   - warp 内线程采用随机访问模式时，bank 映射不可预测，也可能产生 bank conflict。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "Shared Memory",
+        "Bank Conflict",
+        "GPU内存访问"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "983ccfdf92ff29a0",
+      "type": "八股",
+      "question": "为什么将共享内存二维数组从 `[N][32]` 改成 `[N][33]` 可以缓解 bank conflict？",
+      "answer": "原因在于 padding 改变了相邻行元素在 shared memory bank 上的映射关系。\n\n以 `float` 类型数组为例，每个元素 4 字节，若二维数组按 `[N][32]` 排列，则每行正好是 32 个元素。当按列访问时，不同行的同一列元素之间的地址间隔正好对应一个完整的 bank 周期，因此它们容易映射到同一个 bank，导致同一 warp 内多个线程访问同一 bank 的不同地址，产生 bank conflict。\n\n将数组改为 `[N][33]` 后，每行多出 1 个填充元素，行跨度不再与 32 个 bank 完全对齐。这样按列访问时，不同行同一列元素会分散到不同 bank 上，从而打破周期性冲突，显著降低 bank conflict 的概率。\n\n因此，`[N][33]` 的本质是通过 padding 改变地址步长，使访问模式不再与 bank 数量形成整倍数关系。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "Shared Memory",
+        "Bank Conflict",
+        "Padding",
+        "矩阵访问"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "350b815b57790b2e",
+      "type": "八股",
+      "question": "CUDA 中如何分配和释放 GPU 显存？请给出基本步骤，并说明如何进行错误检查。",
+      "answer": "CUDA 中通常使用 `cudaMalloc` 分配 GPU 显存，使用 `cudaFree` 释放。基本步骤如下：\n1. 声明设备指针，例如：`int *d_array;`\n2. 调用 `cudaMalloc` 分配显存，并传入指针变量的地址以及所需字节数，例如：`cudaError_t err = cudaMalloc((void**)&d_array, 100 * sizeof(int));`\n3. 检查返回值是否为 `cudaSuccess`，若不是则说明分配失败，需要进行错误处理，例如内存不足等。\n4. 使用完成后调用 `cudaFree(d_array);` 释放显存。\n\n示例：\n```c\nint *d_array;\ncudaError_t err = cudaMalloc((void**)&d_array, 100 * sizeof(int));\nif (err != cudaSuccess) {\n    // 处理错误\n}\ncudaFree(d_array);\n```",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "显存分配",
+        "cudaMalloc",
+        "cudaFree",
+        "错误处理"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "7b1e12c69d03c53f",
+      "type": "八股",
+      "question": "为什么 `cudaMalloc` 的第一个参数通常写成二级指针，例如 `(void**)&d_array`？",
+      "answer": "因为 C 语言函数参数是按值传递的。如果把一级指针直接传给函数，函数内部拿到的只是该指针的副本，修改这个副本不会影响调用者中的原始指针变量。\n\n`cudaMalloc` 的职责是：在设备端分配一段显存，并把这段显存的地址写回调用者的指针变量。因此它必须能够修改调用者中的指针值。要做到这一点，就需要传入“指针变量的地址”，也就是二级指针 `void**`。\n\n例如：\n```c\nint *d_array;\ncudaMalloc((void**)&d_array, 100 * sizeof(int));\n```\n这里传入的是 `d_array` 的地址，`cudaMalloc` 在内部通过解引用该地址，把新分配的设备内存地址写入 `d_array`。\n\n这与 C 语言中封装 `malloc` 的写法类似：\n```c\nvoid allocate(int** ptr) {\n    *ptr = malloc(sizeof(int) * 10);\n}\nint *arr;\nallocate(&arr);\n```\n本质上，二级指针是为了让函数能够修改调用者持有的一级指针。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "cudaMalloc",
+        "二级指针",
+        "C语言",
+        "指针传参"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "2ece9bad5513ef4f",
+      "type": "八股",
+      "question": "优化 CUDA 程序的全局内存访存效率时，常见手段有哪些？",
+      "answer": "常见的全局内存访存优化手段包括：\n\n1. 合并访问（Coalesced Access）\n   - 让相邻线程访问连续的全局内存地址，例如 `threadIdx.x` 对应连续数据。\n   - 这样多个线程的访问可以合并为更少的内存事务，从而提升带宽利用率。\n   - 典型例子是矩阵转置时使用共享内存做中转，避免直接发生交叉访问。\n\n2. 对齐访问\n   - 对二维数据可使用 `cudaMallocPitch` 分配内存，以保证每一行按合适边界对齐，例如 128 字节对齐。\n   - 对结构体可使用 `__align__` 指令进行对齐。\n   - 对齐有助于提升访存效率，减少低效的内存事务。\n\n3. 向量化加载（Vectorized Load）\n   - 使用 `float4`、`int2` 等宽类型进行加载。\n   - 这种方式可以提高单次访存的数据吞吐量，从而提升整体内存访问效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "访存优化",
+        "全局内存",
+        "Coalesced Access",
+        "对齐访问",
+        "向量化加载"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "50aec9c79b033b9e",
+      "type": "八股",
+      "question": "什么是 CUDA 中的合并访问（Coalesced Access）？如何实现？",
+      "answer": "合并访问是指让相邻线程访问连续的全局内存地址，从而使这些访问能够被硬件合并为更少的内存事务，提高全局内存带宽利用率。\n\n实现方式包括：\n1. 设计数据布局，使线程索引与数据地址连续对应，例如让 `threadIdx.x` 访问连续元素。\n2. 避免线程以跨步、交叉或离散方式访问全局内存。\n3. 在某些场景下借助共享内存重排访问模式，例如矩阵转置时先把数据按适合全局内存读取的方式读入共享内存，再按目标方式写回，以避免低效的交叉访问。\n\n核心要点是：线程访问模式要尽量连续、规则，以便硬件进行访存合并。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "合并访问",
+        "Coalesced Access",
+        "全局内存",
+        "共享内存"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "d43a56610325d202",
+      "type": "八股",
+      "question": "在 CUDA 中，`cudaMallocPitch`、`__align__` 和 `float4`/`int2` 分别用于哪类访存优化？",
+      "answer": "这几个机制分别对应不同类型的访存优化：\n\n1. `cudaMallocPitch`\n   - 用于二维内存分配时的对齐优化。\n   - 它可以保证每一行按合适边界对齐，从而提升二维数据访问效率。\n\n2. `__align__`\n   - 用于结构体等数据类型的对齐。\n   - 通过显式指定对齐方式，改善内存访问效率。\n\n3. `float4`、`int2`\n   - 用于向量化加载（Vectorized Load）。\n   - 通过一次加载更宽的数据，提高内存吞吐量。\n\n总结来说：`cudaMallocPitch` 主要解决二维内存行对齐，`__align__` 主要解决数据结构对齐，`float4`/`int2` 主要用于向量化访存。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "cudaMallocPitch",
+        "__align__",
+        "float4",
+        "int2",
+        "访存优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "e6bc7dbf3aac99d1",
+      "type": "八股",
+      "question": "在 CUDA 中，使用 `reinterpret_cast<float4*>(global_ptr)[tid]` 进行向量化加载的目的是什么？",
+      "answer": "其目的是一次性按 `float4` 读取 4 个连续的 `float` 数据，从而优化全局内存访问。这样做通常有两个直接收益：1）提高单次访存的数据吞吐；2）有利于形成更高效的连续内存访问模式。该写法本质上是把原始指针按 `float4*` 重新解释后，以 `tid` 为索引读取一个四元素向量。前提是数据在内存中按连续方式组织，并满足对应类型访问的对齐要求。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "全局内存",
+        "向量化加载",
+        "内存访问优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "c628429d92a845d6",
+      "type": "八股",
+      "question": "在 CUDA 的内存布局优化中，什么是 SoA，为什么它通常优于 AoS？",
+      "answer": "SoA（Structure of Arrays，数组结构体）是把同类型字段分别连续存储，例如将三维坐标拆成 `float *x, *y, *z`。AoS（Array of Structures，结构体数组）则是按对象存储，每个元素包含多个字段。SoA 通常优于 AoS 的原因是：同类型数据连续排列，更有利于线程按相同字段进行连续访问，从而改善内存访问效率。典型例子是粒子系统中，将位置、速度等属性分离存储，而不是把所有属性打包进单个结构体数组。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "内存布局",
+        "SoA",
+        "AoS"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "020056fe50115201",
+      "type": "八股",
+      "question": "CUDA 共享内存中的 bank 冲突是什么？常见规避方法有哪些？",
+      "answer": "bank 冲突是指同一线程束中的多个线程访问共享内存时，如果访问落到同一个 bank，就会导致访问串行化，从而降低性能。共享内存通常按 32 个 bank 组织，步长与 4 字节相关。常见规避方法有：1）让同一 warp 内线程尽量访问不同 bank；2）对共享内存做填充，例如使用 `__shared__ float data[32][33]`，通过额外补一列打破规则映射；3）调整访问步长或访问模式，避免多个线程映射到同一 bank。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "共享内存",
+        "Bank冲突",
+        "性能优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "86f4849bd60d765e",
+      "type": "八股",
+      "question": "CUDA 中共享内存的数据复用优化是如何实现的？请结合分块加载说明。",
+      "answer": "共享内存的数据复用优化是指把频繁访问的全局内存数据先加载到共享内存中，再由线程块内多个线程重复使用，以减少对全局内存的重复访问。典型做法是分块加载，例如矩阵乘法中先把一个 tile 从全局内存搬到共享内存：`__shared__ float tile[TILE_SIZE][TILE_SIZE]; tile[threadIdx.y][threadIdx.x] = global_data[global_index]; __syncthreads();`。其中：1）线程协同把一块数据加载到共享内存；2）`__syncthreads()` 保证所有线程都完成加载后再继续计算；3）后续计算阶段重复使用该 tile，从而提升访存效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "共享内存",
+        "数据复用",
+        "分块加载",
+        "矩阵乘法"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "c05e825b1998ea1d",
+      "type": "八股",
+      "question": "CUDA 中常量内存和纹理内存分别适用于什么场景？",
+      "answer": "常量内存适用于只读数据的存储，例如参数表。它通过 `__constant__` 声明，并利用缓存加速访问。纹理内存适用于空间局部性强的数据访问场景，例如图像处理。它可以利用纹理缓存，并支持硬件插值。因此，两者的典型适用场景分别是：常量内存用于只读、小规模、经常访问的参数类数据；纹理内存用于具有空间局部性的只读数据访问。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "常量内存",
+        "纹理内存",
+        "缓存"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "2f23868a361e4cfa",
+      "type": "八股",
+      "question": "CUDA 中寄存器溢出指什么？如何减少寄存器溢出带来的性能问题？",
+      "answer": "寄存器溢出是指线程所需寄存器数量过多，超出可用寄存器资源后，部分数据被放到本地内存中，导致额外的内存访问开销。减少寄存器溢出的常见方法包括：1）限制局部变量数量，避免过多临时变量；2）控制内核实现复杂度，减少不必要的寄存器占用；3）通过 `__launch_bounds__` 在寄存器使用和线程块大小之间做平衡，以改善资源分配和执行效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "寄存器",
+        "寄存器溢出",
+        "__launch_bounds__"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "eb1c19a1f5378d17",
+      "type": "八股",
+      "question": "CUDA 中如何合理选择线程块和网格大小以提高计算效率？",
+      "answer": "合理选择线程块和网格大小需要同时考虑硬件资源和并行覆盖度：1）线程块大小应与 SM 的寄存器、共享内存等资源匹配，以充分利用硬件并行性；2）线程块大小通常选择为 warp 大小的倍数，如 32、64、128、256，以保证 warp 完整性并有利于合并内存访问；3）网格大小应足够大，以覆盖所有 SM，避免部分计算资源空闲；4）线程块大小不能只追求大，还要结合资源占用情况，避免因寄存器或共享内存压力过大而降低并发度。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "线程块",
+        "网格",
+        "Warp",
+        "并行优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "9e8ef3d8dd1f7387",
+      "type": "八股",
+      "question": "在 CUDA 中，什么是合并内存访问（Coalesced Access）？为什么同一 warp 内线程访问 `array[tid]` 通常比访问 `array[tid * stride]` 更高效？",
+      "answer": "合并内存访问是指同一 warp 内的线程访问连续的全局内存地址，从而提高全局内存访问效率。通常情况下，`array[tid]` 比 `array[tid * stride]` 更高效，因为前者使相邻线程访问相邻地址，访问模式连续；而后者会让线程按步长跳跃访问，地址分散，不利于高效的全局内存访问。优化时应尽量让同一 warp 内线程访问连续地址。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "内存优化",
+        "全局内存",
+        "Coalesced Access",
+        "warp"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "f791e4867748288e",
+      "type": "八股",
+      "question": "CUDA 中共享内存优化的核心做法有哪些？",
+      "answer": "共享内存优化的核心做法包括：\n1. 缓存数据：将需要频繁访问的全局内存数据加载到共享内存中，例如小矩阵或邻域数据，以减少全局内存带宽压力。\n2. 优化共享内存访问模式：确保访问模式尽量高效，并避免冲突，例如避免同一 bank 的冲突。\n3. 控制同步开销：使用 `__syncthreads()` 时确保所有线程都能到达同步点，避免死锁或数据竞争；同时避免在循环内部频繁同步，尽量将同步操作放在循环外。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "共享内存",
+        "bank冲突",
+        "__syncthreads__",
+        "性能优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "8c661cfeb1e3e39c",
+      "type": "八股",
+      "question": "在 CUDA 中使用 `__syncthreads()` 时需要注意哪些问题？如何降低同步带来的开销？",
+      "answer": "使用 `__syncthreads()` 时需要注意：\n1. 必须确保所有线程都到达同步点，否则可能导致死锁或数据竞争。\n2. 不要在会导致部分线程无法到达同步点的路径上错误使用同步。\n降低同步开销的做法包括：\n1. 避免在循环内部频繁调用 `__syncthreads()`。\n2. 尽量将同步操作放在循环外，减少不必要的同步次数。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "线程同步",
+        "__syncthreads__",
+        "死锁",
+        "数据竞争"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "93ac77348bb402ef",
+      "type": "八股",
+      "question": "为什么将频繁访问的全局内存数据加载到共享内存中可以提升 CUDA 程序性能？同时还需要注意什么访问问题？",
+      "answer": "将频繁访问的全局内存数据加载到共享内存中，可以减少对全局内存的访问次数，从而降低全局内存带宽压力，提升程序性能。这种方式特别适合小矩阵、邻域数据等会被重复访问的数据。同时还需要注意共享内存的访问模式，应尽量避免冲突，例如避免同一 bank 的冲突，以免影响共享内存访问效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "CUDA",
+        "共享内存",
+        "全局内存",
+        "带宽优化",
+        "bank冲突"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "018bee275a4d7001",
+      "type": "八股",
+      "question": "随着序列长度 seqlen 增加，encoder-only 和 decoder-only 模型的计算量如何变化？请分别给出自注意力层、FFN 层及整体复杂度趋势。",
+      "answer": "两类模型在 seqlen 增大时，计算量趋势基本一致，主要差异不在复杂度阶数，而在注意力形式上：encoder-only 使用普通自注意力，decoder-only 使用带因果掩码的自注意力，但复杂度同阶。\n\n1. Encoder-only：\n- 自注意力层复杂度：O(seqlen² × d)，其中 d 是模型维度。随着 seqlen 增加，计算量呈平方级增长。\n- FFN 层复杂度：O(seqlen × d²)，随着 seqlen 线性增长。\n- 整体趋势：当 seqlen 较大时，自注意力的平方项占主导，因此整体计算量主要受 O(seqlen² × d) 驱动。\n\n2. Decoder-only：\n- 自注意力层复杂度：虽然采用因果掩码，但仍需计算自注意力，复杂度仍为 O(seqlen² × d)，随 seqlen 平方级增长。\n- FFN 层复杂度：O(seqlen × d²)，随 seqlen 线性增长。\n- 整体趋势：与 encoder-only 类似，整体计算量主要由自注意力层的平方项主导。\n\n结论：随着 seqlen 增加，encoder-only 和 decoder-only 的总计算量都会主要表现为平方级增长，主导项都是自注意力的 O(seqlen² × d)。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Transformer",
+        "复杂度",
+        "序列长度",
+        "Self-Attention",
+        "FFN"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "855987b5556d7ccc",
+      "type": "八股",
+      "question": "Transformer 中 Encoder-only 与 Decoder-only 模型的自注意力计算复杂度分别是什么？二者在序列长度 seqlen 增长时的变化趋势有何异同？",
+      "answer": "两者的自注意力计算量都由自注意力层主导，复杂度均为 O(seqlen² × d)，其中 d 表示隐藏维度或特征维度。随着 seqlen 增长，计算量都按平方增长。差异在于 Decoder-only 使用因果掩码，可能使实际参与计算的位置略少，因此实际计算量可能略微降低，但复杂度阶数不变，仍然是 O(seqlen² × d)。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Transformer",
+        "自注意力",
+        "复杂度分析",
+        "Encoder-only",
+        "Decoder-only"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "14d7b6cf13f9ec38",
+      "type": "八股",
+      "question": "为什么 Decoder-only 模型在推理阶段会出现额外的线性访存增长，而 Encoder-only 模型没有？请给出对应复杂度。",
+      "answer": "因为 Decoder-only 在生成式推理时需要缓存历史 token 的 Key 和 Value，以避免每一步重复计算历史上下文，这就是 KV Cache。随着生成长度增加，缓存的历史 Key/Value 数量随 seqlen 线性增加，因此额外访存量为 O(seqlen × d)。\n\nEncoder-only 不进行这种自回归逐 token 生成，也就不需要在推理阶段维护历史 KV 缓存，因此没有这部分随 seqlen 线性增长的额外访存开销。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "KV Cache",
+        "自回归推理",
+        "访存复杂度",
+        "Decoder-only",
+        "Encoder-only"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "6e0383f7381d113c",
+      "type": "八股",
+      "question": "CUDA 中纹理内存适合什么访问模式？其典型使用方式是什么？",
+      "answer": "纹理内存适合访问具有空间局部性的数据，例如图像数据，因为它可以利用纹理缓存的压缩和空间局部性优化。典型使用方式是先通过 `cudaBindTexture()` 绑定纹理，再通过 `tex2D()` 等纹理访问函数读取数据。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "**<font style=\"color:rgb(13, 18, 57);\">（3）常量内存（Constant Memory）和纹理内存（Texture Memory）</font>**",
+        "CUDA",
+        "纹理内存",
+        "Texture Memory",
+        "cudaBindTexture",
+        "tex2D"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "41f7e0f3209df952",
+      "type": "八股",
+      "question": "什么是 CUDA 中的分支发散，为什么要避免，以及有哪些常见优化方法？",
+      "answer": "分支发散是指同一 warp 内的线程执行了不同的分支路径，这会导致部分线程在某些时刻闲置，从而降低执行效率，因此应尽量避免。常见优化方法包括：1. 避免同一 warp 内线程走不同分支；2. 将条件判断尽量移到循环外部，减少循环中的分支；3. 使用 `__unroll` 或 `#pragma unroll` 展开循环，以减少分支判断带来的开销。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "**<font style=\"color:rgb(13, 18, 57);\">（3）常量内存（Constant Memory）和纹理内存（Texture Memory）</font>**",
+        "CUDA",
+        "Branch Divergence",
+        "warp",
+        "循环展开",
+        "性能优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "c3a3ee55d8482ffc",
+      "type": "八股",
+      "question": "什么是 CUDA 中的寄存器压力？如何观察和控制寄存器使用以避免 spill？",
+      "answer": "寄存器压力是指核函数中寄存器使用过多，导致寄存器不足，进而发生 spill，即部分数据溢出到内存中，影响性能。避免和控制的方法包括：1. 避免在核函数中使用过多局部变量；2. 使用 `-Xptxas -v` 查看寄存器使用情况；3. 通过 `-maxrregcount` 限制寄存器数量。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "**<font style=\"color:rgb(13, 18, 57);\">（3）常量内存（Constant Memory）和纹理内存（Texture Memory）</font>**",
+        "CUDA",
+        "寄存器压力",
+        "spill",
+        "ptxas",
+        "maxrregcount"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "856f2021b180a698",
+      "type": "八股",
+      "question": "对于计算密集型 CUDA 任务，如何利用 SM 资源来隐藏延迟？",
+      "answer": "对于计算密集型任务，应确保每个 SM 上有足够多的线程块，以便在发生内存访问延迟或分支延迟时，调度其他线程块继续执行，从而达到隐藏延迟的目的。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "CUDA部分",
+        "**<font style=\"color:rgb(13, 18, 57);\">（3）常量内存（Constant Memory）和纹理内存（Texture Memory）</font>**",
+        "CUDA",
+        "SM",
+        "线程块",
+        "延迟隐藏",
+        "并行调度"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "35329413c90d04f4",
+      "type": "八股",
+      "question": "在自注意力中，为什么常将 QK^T 矩阵乘法、Softmax、Masking 和 Dropout 做算子融合？",
+      "answer": "因为这几个操作是连续执行的，融合后可以在一个内核中直接完成计算，避免将中间结果（如 QK^T）写回全局内存，从而减少显存带宽压力。同时还能减少多次内核启动带来的固定开销，提升整体执行效率。典型场景是自注意力中的 QK^T 后接 Softmax、因果掩码等操作。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "算子融合",
+        "Attention",
+        "Softmax",
+        "Mask",
+        "Dropout",
+        "推理加速"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "1007c0fbfb85b485",
+      "type": "八股",
+      "question": "FlashAttention 主要融合了自注意力中的哪些操作，其直接收益是什么？",
+      "answer": "FlashAttention 主要将自注意力中的矩阵乘法、Softmax 和掩码操作进行融合。其直接收益是显著降低显存占用，并减少中间结果的显存读写，从而缓解显存带宽压力、提升执行效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "FlashAttention",
+        "Attention",
+        "算子融合",
+        "显存优化"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "594579ad5c6acffc",
+      "type": "八股",
+      "question": "Transformer 中为什么可以将 Add 和 LayerNorm 融合实现？",
+      "answer": "在残差连接后的常见结构中，形式通常为 x = LayerNorm(x + Sublayer(x))。将 Add 和 LayerNorm 融合，可以把残差加法与归一化放在同一个计算过程中完成，减少中间结果在显存中的多次读写，因此能够降低访存开销并提升执行效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Transformer",
+        "LayerNorm",
+        "Residual",
+        "算子融合"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "c0ca99b8003fbbac",
+      "type": "八股",
+      "question": "为什么 Linear/Conv 与 ReLU、GELU、SiLU 等激活函数适合做融合？",
+      "answer": "因为在线性层或卷积层之后通常紧接逐元素激活函数，例如 GELU(Linear(x))。将 GEMM 或卷积计算与激活函数融合，可以避免保存中间输出，减少显存读写；同时把乘加运算与逐元素计算合并执行，有助于提升整体执行效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Linear",
+        "Conv",
+        "ReLU",
+        "GELU",
+        "SiLU",
+        "算子融合"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "839c94b7d80d561e",
+      "type": "八股",
+      "question": "CUDA 中哪个接口支持将矩阵乘与 Bias、激活函数融合？",
+      "answer": "CUDA 的 cublasLtMatMul 支持在矩阵乘中融合 Bias 和激活函数。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "CUDA",
+        "cuBLAS",
+        "cublasLtMatMul",
+        "GEMM",
+        "算子融合"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "ae86fa0725e4bd9b",
+      "type": "八股",
+      "question": "为什么 Conv 和 BatchNorm 可以在推理阶段进行融合？",
+      "answer": "因为在推理阶段，BatchNorm 使用的均值和方差是固定的，不再随 batch 动态变化，因此可以将 BatchNorm 的缩放参数 γ 和偏移参数 β 合并到卷积层的权重参数中。这样可以减少额外计算和算子调用，从而提升推理效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Conv",
+        "BatchNorm",
+        "推理优化",
+        "算子融合"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "9928afd3c8663965",
+      "type": "八股",
+      "question": "算子融合通常能从哪三个方面提升 GPU 执行效率？",
+      "answer": "主要有三个方面：\n1. 减少显存带宽压力：中间结果无需频繁写回显存，降低带宽需求。\n2. 降低内核启动开销：GPU 每次内核启动都有固定延迟，融合后可减少启动次数。\n3. 提高计算密度：将访存密集型与计算密集型操作合并，有助于提升硬件利用率，例如提高 GPU 的 SM 利用率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "算子融合",
+        "GPU优化",
+        "显存带宽",
+        "Kernel Launch",
+        "SM利用率"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "74feac7a0cdf9985",
+      "type": "八股",
+      "question": "常见的大模型训练并行策略有哪些？请分别说明数据并行、模型并行、流水线并行和混合并行的基本做法。",
+      "answer": "常见并行策略包括以下几类：\n1. 数据并行：将训练数据分片到多台设备上，每台设备保存一份完整模型副本，分别计算梯度后再进行梯度同步，例如 PyTorch DDP。\n2. 模型并行：将模型拆分到不同设备上执行，例如把不同层或同一层的张量切分到多设备上；Megatron-LM 的张量并行属于这一类。\n3. 流水线并行：将模型按层划分为多个阶段，部署到不同设备上，设备之间按流水线方式级联执行，例如 PipeTransformer。\n4. 混合并行：组合使用数据并行、模型并行和流水线并行等多种策略，以适配超大模型训练；典型形式是 3D 并行，例如 DeepSpeed + Megatron-LM 的组合方案。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "并行策略",
+        "数据并行",
+        "模型并行",
+        "流水线并行",
+        "混合并行"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "f615d745f8ee5bdd",
+      "type": "八股",
+      "question": "ZeRO 优化的作用是什么？Stage-3 的关键效果是什么？",
+      "answer": "ZeRO 是 DeepSpeed 提供的一种内存优化方法，其作用是通过分阶段优化内存使用，降低大模型训练中的显存开销。Stage-3 的关键效果是可以消除模型状态冗余，从而进一步减少内存占用。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "ZeRO",
+        "DeepSpeed",
+        "内存优化",
+        "Stage-3"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "7d5901dbdc2df717",
+      "type": "八股",
+      "question": "梯度检查点（Gradient Checkpointing）的原理和代价是什么？",
+      "answer": "梯度检查点的原理是：在前向传播时不保存全部中间激活值，只保留部分检查点；在反向传播时，对缺失的中间激活值进行重算。它的核心特点是用额外计算时间换取更低的内存占用。代价是反向传播阶段需要重算中间激活，因此训练时间会增加。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "梯度检查点",
+        "Gradient Checkpointing",
+        "激活重算",
+        "内存优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "f093cdea0b48f0f3",
+      "type": "八股",
+      "question": "激活卸载（Activation Offloading）是如何降低 GPU 显存占用的？",
+      "answer": "激活卸载的做法是将训练过程中产生的激活值临时存放到 CPU 内存中，而不是一直保留在 GPU 显存里。这样可以减少 GPU 上的激活占用，从而降低显存压力。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Activation Offloading",
+        "激活卸载",
+        "CPU内存",
+        "显存优化"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "9ebd63476974b779",
+      "type": "八股",
+      "question": "AdamW/LAMB 优化器在参数更新上的共同特点是什么？AdamW 的一个关键优势是什么？",
+      "answer": "AdamW 和 LAMB 都属于自适应学习率优化器，共同特点是能够根据参数或梯度状态自适应地调整学习率。AdamW 的一个关键优势是避免权重衰减干扰参数更新，即将权重衰减与参数更新过程解耦。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "AdamW",
+        "LAMB",
+        "优化器",
+        "自适应学习率",
+        "权重衰减"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "65fb5dd6cd1f676d",
+      "type": "八股",
+      "question": "学习率预热（Warmup）的做法和作用分别是什么？",
+      "answer": "学习率预热的做法是在训练初始阶段逐步增大学习率，而不是一开始就使用较大的目标学习率。它的作用是降低训练初期的不稳定性，防止梯度爆炸。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Warmup",
+        "学习率预热",
+        "训练稳定性",
+        "梯度爆炸"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "1cb429528906f69c",
+      "type": "八股",
+      "question": "MOE（混合专家）架构如何降低计算量？",
+      "answer": "MOE 架构通过稀疏激活来降低计算量。其核心思想是并不是每次都激活全部参数或全部专家，而是只激活部分专家参与计算，例如 Switch Transformer 就采用了这种方式，因此能够在保持大模型容量的同时减少实际计算开销。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "MOE",
+        "混合专家模型",
+        "稀疏激活",
+        "Switch Transformer"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "572469f2eb4967a1",
+      "type": "八股",
+      "question": "参数高效微调的核心思想是什么？常见方法有哪些？",
+      "answer": "参数高效微调的核心思想是：在微调大模型时，不更新全部参数，而只微调一部分参数，从而降低训练成本。常见方法包括 LoRA 和 Adapter。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "参数高效微调",
+        "LoRA",
+        "Adapter",
+        "微调"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "800bddad191e96a1",
+      "type": "八股",
+      "question": "FlashAttention 的核心原理是什么？它是如何在自注意力计算中降低显存占用并保证数值稳定性的？",
+      "answer": "FlashAttention 是一种高效且数值稳定的自注意力计算方法，核心目标是优化内存访问与计算流程，缓解传统自注意力在长序列上的内存和计算瓶颈。\n\n其核心原理包括：\n1. 块处理（Blocking）：将序列按块划分，逐块计算查询块与键块之间的注意力，而不是一次性构造完整的 L×L 注意力矩阵。\n2. IO 感知（IO-Awareness）：优化内存访问模式，尽量让数据停留在寄存器或高速缓存中，减少对 GPU 全局显存的反复读写。\n3. 融合计算：将自注意力中的矩阵乘、Softmax 和掩码等操作融合处理，避免中间结果频繁落到显存。\n4. 数值稳定的 Softmax：在块内进行归一化，采用数值稳定的计算方式，并逐块累积注意力值与归一化因子，避免指数运算溢出，同时保证最终结果准确。\n\n显存优化方式：\n- 传统自注意力通常需要显式存储完整的注意力矩阵，显存复杂度为 O(N²)。\n- FlashAttention 只保留当前处理块的数据和必要的中间统计量，不存储完整注意力矩阵，因此可将显存占用降到 O(N)。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "FlashAttention",
+        "自注意力",
+        "显存优化",
+        "Softmax",
+        "推理加速"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "24788bbd1f936415",
+      "type": "八股",
+      "question": "为什么 FlashAttention 能显著提升训练速度？",
+      "answer": "FlashAttention 显著提升训练速度，主要原因不在于改变了自注意力的数学结果，而在于减少了内存访问开销并提升了硬件利用率。\n\n具体原因包括：\n1. 缓解内存瓶颈：GPU 的速度常常受限于内存带宽而非纯算力。传统自注意力需要多次读写大规模中间结果，容易受显存带宽限制。\n2. 减少访存开销：FlashAttention 通过块处理和算子融合，避免将完整注意力矩阵写回显存，再从显存读出进行 Softmax 和后续计算，从而显著减少全局内存访问。\n3. 提高缓存命中率：通过 IO 感知的设计，让当前块数据尽可能驻留在寄存器或高速缓存中，减少慢速显存访问。\n4. 降低显存占用：显存压力下降后，可以支持更长序列或更大的 batch size，间接提升训练吞吐。\n5. 保持数值稳定：块内稳定 Softmax 与逐块累积机制避免了数值溢出，使优化后的实现既快又可靠。\n\n因此，FlashAttention 的速度提升本质上来自对内存访问模式的优化，而不仅仅是算术计算量的变化。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "FlashAttention",
+        "训练加速",
+        "GPU",
+        "内存带宽",
+        "IO-Awareness"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "28cc095655f6dbaa",
+      "type": "八股",
+      "question": "TensorRT 中的算子融合是什么？请以 Conv-BN-ReLU 为例说明其形式。",
+      "answer": "TensorRT 中的算子融合是指在推理引擎中将多个连续操作合并为单个内核执行，以减少中间结果读写和内核启动开销，从而提升推理效率。\n\n以 Conv-BN-ReLU 为例：\n- 原始执行流程通常是先做卷积（Conv），再做批归一化（BN），最后做激活函数（ReLU）。\n- 在 TensorRT 中，这三个连续操作可以融合为一个单独的内核执行，即 Conv-BN-ReLU。\n\n这样做的直接效果是：\n1. 减少中间张量写回和再次读取。\n2. 降低内核调度与启动开销。\n3. 提升推理阶段的执行效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "TensorRT",
+        "算子融合",
+        "Conv-BN-ReLU",
+        "推理引擎"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "63ed0cb4ff41a171",
+      "type": "八股",
+      "question": "大模型推理中的模型压缩常见方法有哪些？分别说明其核心做法。",
+      "answer": "常见的模型压缩方法包括：\n1. 量化（Quantization）：将模型参数或计算精度从 FP32 转为 INT8、FP16 等更低精度表示，以降低存储和计算开销，常见于 TensorRT、GGML 等方案。\n2. 剪枝（Pruning）：移除模型中的冗余权重，常见形式包括非结构化剪枝和结构化剪枝，以减少参数量和计算量。\n3. 知识蒸馏（Knowledge Distillation）：使用大模型作为教师模型，训练更轻量的学生模型，在尽量保留效果的同时降低部署成本。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "大模型推理",
+        "模型压缩",
+        "量化",
+        "剪枝",
+        "知识蒸馏"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "d09e8c03859abcaa",
+      "type": "八股",
+      "question": "量化在大模型推理加速中的作用是什么？常见的精度转换形式有哪些？",
+      "answer": "量化的作用是通过降低数值表示精度来减少模型存储占用和计算开销，从而提升推理效率。常见的精度转换形式包括将 FP32 转为 INT8 或 FP16。文中给出的相关实现示例包括 TensorRT 和 GGML。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "量化",
+        "推理加速",
+        "FP32",
+        "INT8",
+        "FP16"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "5e2865385ae0d3f1",
+      "type": "八股",
+      "question": "剪枝在模型压缩中的作用是什么？常见类型有哪些？",
+      "answer": "剪枝的作用是移除模型中的冗余权重，以减少参数规模和计算开销。常见类型包括：\n1. 非结构化剪枝：移除分散的冗余权重。\n2. 结构化剪枝：按更规则的结构移除参数。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "剪枝",
+        "模型压缩",
+        "结构化剪枝",
+        "非结构化剪枝"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "e4d86aa82f0e22e2",
+      "type": "八股",
+      "question": "知识蒸馏在大模型压缩中的基本做法是什么？",
+      "answer": "知识蒸馏的基本做法是使用大模型作为教师模型，训练一个更轻量的学生模型，使学生模型学习教师模型的能力，从而在降低模型规模和部署成本的同时尽量保留性能。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "知识蒸馏",
+        "模型压缩",
+        "教师模型",
+        "学生模型"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "7a68e089fc07af13",
+      "type": "八股",
+      "question": "什么是算子融合（Kernel Fusion）？它在大模型推理中的主要收益是什么？",
+      "answer": "算子融合是将多个操作合并为单一内核执行的优化方法。在大模型推理中，它的主要收益包括：\n1. 减少显存访问次数。\n2. 减少内核启动开销。\n3. 提高计算效率。\n文中给出的典型示例是 TensorRT。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "算子融合",
+        "Kernel Fusion",
+        "推理优化",
+        "TensorRT"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "4b6350855ceee9d5",
+      "type": "八股",
+      "question": "KV Cache 在生成类任务中的作用是什么？",
+      "answer": "KV Cache 的作用是在生成任务中缓存注意力机制中的键（Key）和值（Value），从而避免在后续生成过程中重复计算这些内容，提升推理效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "KV Cache",
+        "生成任务",
+        "注意力机制",
+        "推理加速"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "3d020cea99024c36",
+      "type": "八股",
+      "question": "什么是推测解码（Speculative Decoding）？其基本流程是什么？",
+      "answer": "推测解码是一种推理加速方法，其基本流程是：\n1. 先由小模型预测结果；\n2. 再由大模型对这些预测进行快速验证。\n这种方式利用小模型生成候选、大模型校验的组合来提升生成效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "推测解码",
+        "Speculative Decoding",
+        "推理加速",
+        "生成式模型"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "bfef9b9ace0b0cc9",
+      "type": "八股",
+      "question": "动态批处理在大模型推理系统中的作用是什么？",
+      "answer": "动态批处理的作用是将不同长度的输入请求合并处理，以提升系统吞吐量。文中给出的示例是 HuggingFace TGI。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "动态批处理",
+        "吞吐量",
+        "推理系统",
+        "TGI"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "09ba825b3a2070eb",
+      "type": "八股",
+      "question": "Paged Attention 主要优化的是哪一类问题？",
+      "answer": "Paged Attention 主要用于优化 KV Cache 的显存分配问题。文中将其作为显存管理优化的代表方案，并指出 vLLM 使用该方法来提升推理阶段的显存利用效率。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "Paged Attention",
+        "vLLM",
+        "显存管理",
+        "KV Cache"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "cf6e516629175ddb",
+      "type": "八股",
+      "question": "服务侧的大模型推理优化通常包括哪些手段？",
+      "answer": "服务侧的大模型推理优化通常包括：\n1. 模型分片；\n2. 请求批处理；\n3. 异步推理。\n文中给出的代表性系统是 NVIDIA Triton。",
+      "category": "推理加速",
+      "tags": [
+        "**英伟达**",
+        "大模型部分",
+        "服务优化",
+        "模型分片",
+        "请求批处理",
+        "异步推理",
+        "Triton"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_Infra___推理加速__cdct1lkbbd7hhlun.md"
+    },
+    {
+      "id": "109880d74433ecd4",
+      "type": "八股",
+      "question": "GRPO 的损失函数包含哪两部分，各自作用是什么？",
+      "answer": "GRPO 的损失函数包含两部分：\n1. 第一项是缩放后的优势项，用于最大化优势，从而推动策略朝着更优方向更新。\n2. 第二项是 KL 散度惩罚项，用于约束当前策略不要偏离参考策略过远，保证训练过程的稳定性。\n整体目标是在提升策略表现的同时，使模型保持在参考策略附近。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "损失函数",
+        "优势函数",
+        "KL惩罚",
+        "策略优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "4652f64b214d83e8",
+      "type": "八股",
+      "question": "GRPO 的核心优化目标是什么？它在训练时主要约束哪两个方面？",
+      "answer": "GRPO 的目标可以概括为：最大化生成补全结果的优势函数（advantage），同时确保当前策略不要偏离参考策略过远。也就是说，它在训练时同时关注两个方面：1）提升高优势样本的生成概率；2）让模型保持在 reference policy 附近，以避免策略更新过于激进。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "强化学习",
+        "策略优化",
+        "advantage",
+        "reference policy"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "df0535269b097194",
+      "type": "八股",
+      "question": "GRPO 相比 PPO 的关键简化是什么？这种简化带来了什么工程收益？",
+      "answer": "GRPO 可以看作 PPO 的精简版。它保留了 PPO 的核心策略优化思想，但去掉了独立的价值函数（Critic）。这种简化带来的工程收益主要有：1）不再需要训练额外的价值模型；2）训练流程更轻量；3）训练速度更快；4）资源消耗更低，更适合资源受限场景。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "PPO",
+        "Critic",
+        "价值函数",
+        "工程实现"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "c8788168f08fda44",
+      "type": "八股",
+      "question": "GRPO 中重要性采样的作用是什么？",
+      "answer": "重要性采样是 GRPO 的核心机制之一。它的作用是复用旧策略生成的样本，并通过重要性权重对这些样本在新策略下的贡献进行校正，从而调整新策略的优化方向。这样做可以在不完全依赖新采样数据的情况下，利用已有样本进行有效更新。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "重要性采样",
+        "在线学习",
+        "策略更新"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "dc4d9854a387fd63",
+      "type": "八股",
+      "question": "GRPO 是如何替代 PPO 中价值函数基线的？",
+      "answer": "GRPO 不再像 PPO 那样引入额外的价值函数近似作为基线，而是直接使用多个采样输出的平均奖励作为 baseline。这样做的结果是：1）省去了 Critic 价值模型；2）仅依赖组内奖励统计量即可完成相对优势估计；3）显著减少训练资源消耗。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "PPO",
+        "baseline",
+        "价值函数",
+        "组内奖励"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "bafef17614bf9b6f",
+      "type": "八股",
+      "question": "为什么说 GRPO 更适合资源受限场景？",
+      "answer": "因为 GRPO 省去了 Critic 价值模型，不需要像 PPO 那样额外训练价值函数近似；同时它仅依赖组内奖励统计量来构造优化信号。这使得整体训练流程更轻量、资源消耗更低，因此更适合资源受限场景。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "资源优化",
+        "Critic",
+        "工程优势"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "b7713b8fd1cebe74",
+      "type": "八股",
+      "question": "GRPO 属于哪类学习算法？这种算法形态在数据来源上有什么特点？",
+      "answer": "GRPO 属于在线学习算法（online learning algorithm）。它的数据来源特点是：训练过程中使用由当前训练模型自身生成的数据，并基于这些在线生成的数据迭代改进策略，而不是只依赖固定离线数据集。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "在线学习",
+        "数据生成",
+        "强化学习"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "fbd6d4feb1d61f69",
+      "type": "八股",
+      "question": "GRPO 与 PPO 在优势值估计上的核心区别是什么？",
+      "answer": "PPO 通常依赖一个独立的价值模型（Critic / Value Model）来估计优势值 A_i，因此需要额外训练一个模型。GRPO 的核心区别是：不再使用独立的 Critic，而是直接利用同一提示下组内多个候选响应的奖励来构造基线，并计算相对优势。具体做法是：对给定问题从当前策略生成一组响应，得到对应奖励后，基于组内奖励的均值和标准差进行归一化，得到每个响应的相对质量（优势值）。这样可以移除 value model，降低计算成本、内存占用和时间开销。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "PPO",
+        "优势估计",
+        "Critic",
+        "Value Model"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "e8f13b633e18978f",
+      "type": "八股",
+      "question": "GRPO 中组内相对优势是如何计算的？它反映了什么含义？",
+      "answer": "GRPO 中，对同一个提示生成 G 个响应，记其奖励为 {r1, r2, ..., rG}。然后先计算这组奖励的均值和标准差，再对每个响应的奖励做归一化，得到其相对优势：A_i = (r_i - mean(r)) / std(r)。其中，A_i 表示第 i 个答案在当前组内的相对质量。\n\n它反映的含义是：\n1. 不是评估答案的绝对好坏，而是评估它相对于同组其他候选答案的优劣；\n2. 奖励高于组均值的响应会得到更高的优势值；\n3. 通过标准差归一化后，不同组之间的奖励尺度差异会被一定程度消除，使训练更稳定；\n4. 这种相对比较机制会鼓励模型偏好组内奖励更高的答案。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "优势函数",
+        "奖励归一化",
+        "GRAE",
+        "相对质量"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "38e116b5773f9b53",
+      "type": "八股",
+      "question": "GRPO 的训练流程可以概括为哪几个步骤？",
+      "answer": "GRPO 的训练流程可概括为以下四步：\n1. 生成一组响应：对每个提示，从当前策略的 LLM 中生成多个响应，形成一个组；\n2. 对组进行打分：使用奖励模型为组内所有响应计算奖励分数；\n3. 计算组内相对优势：将每个响应的奖励与组内其他响应进行比较，通常通过组内奖励的均值和标准差归一化，得到相对优势（GRAE）；\n4. 优化策略：使用 PPO 风格的目标函数更新策略，但其中使用的是组内相对优势，而不是由独立价值模型估计出的优势。\n\n这一流程的关键点在于：优势估计来自组内相对比较，而不是额外训练的 Critic。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "训练流程",
+        "奖励模型",
+        "GRAE",
+        "PPO风格目标"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ca52ea79c9b11934",
+      "type": "八股",
+      "question": "GRPO 为什么能够移除价值模型（Value Model）？这样做带来了什么工程收益？",
+      "answer": "GRPO 能够移除价值模型，是因为它不再通过 Critic 预测状态价值来估计优势，而是直接利用同一提示下多个候选响应的奖励做组内相对比较，通过组内奖励的均值和标准差归一化得到优势值。\n\n这样做带来的工程收益包括：\n1. 无需额外训练一个价值模型，简化训练结构；\n2. 降低计算成本，因为少了一个模型的前向与训练开销；\n3. 降低内存占用，因为不需要同时维护奖励模型和价值模型；\n4. 降低时间开销，尤其是在推理或训练迭代过程中更明显。\n\n因此，GRPO 的一个重要优化点就是把优势估计从“奖励模型 + 价值模型”依赖，简化为基于组内奖励的相对估计。",
+      "category": "deepseek",
+      "tags": [
+        "deepseek R1",
+        "R1",
+        "<font style=\"color:#000000;\">GRPO（G</font><font style=\"color:rgb(64, 64, 64);\">roup Relative Policy Optimization</font>）",
+        "GRPO",
+        "Value Model",
+        "工程优化",
+        "内存占用",
+        "计算成本"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "085bd161b770e7db",
+      "type": "八股",
+      "question": "为什么在计算 mean_kl 和 clip_ratio 时都要除以 completion_mask.sum()，而不是直接取所有位置的平均值？",
+      "answer": "因为 completion_mask 用于标识哪些 token 是有效的完成部分。除以 completion_mask.sum() 表示只对有效 token 做平均，避免无效位置或填充位置参与统计，保证指标反映真实的 completion 区域。如果直接对所有位置取平均，会把无效位置也计入分母，导致统计结果被稀释或失真。",
+      "category": "deepseek",
+      "tags": [
+        "这是一个高度简化的预期目标版本",
+        "completion_mask",
+        "平均方式",
+        "指标统计",
+        "工程实现"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "85dc10e049e3e8b3",
+      "type": "八股",
+      "question": "知识蒸馏中，soft label 和 hard label 分别表示什么？",
+      "answer": "在知识蒸馏中：\n1. soft label 指教师模型输出的概率分布，学生模型通过训练去逼近这个分布。\n2. hard label 指真实标注或真值对应的目标分布，学生模型通过训练去逼近真值。\n两者的区别在于，soft label 提供了教师模型对各类别或各token的相对偏好信息，而 hard label 直接约束模型输出接近标准答案。",
+      "category": "deepseek",
+      "tags": [
+        "这是一个高度简化的预期目标版本",
+        "<font style=\"color:rgb(0, 0, 0);\">蒸馏</font>",
+        "蒸馏",
+        "soft label",
+        "hard label",
+        "SFT"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "3c03bc3cbf79b8c8",
+      "type": "八股",
+      "question": "蒸馏训练中为什么要将 soft label 和 hard label 结合成混合损失函数？",
+      "answer": "将 soft label 和 hard label 结合成混合损失函数，是为了同时利用教师模型知识和真实标注约束：\n1. soft label 让学生模型学习教师模型的输出概率分布，从而更快吸收教师模型中的知识。\n2. hard label 让学生模型输出接近真值，保证学习方向正确。\n3. 二者结合后，既能提升学习效率，又能减少只模仿教师而偏离真实目标的风险。概括来说，就是兼顾“学得快”和“学得对”。",
+      "category": "deepseek",
+      "tags": [
+        "这是一个高度简化的预期目标版本",
+        "<font style=\"color:rgb(0, 0, 0);\">蒸馏</font>",
+        "蒸馏",
+        "损失函数",
+        "soft label",
+        "hard label"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "a362943a85811c9a",
+      "type": "八股",
+      "question": "蒸馏训练中提到的学习率动态调整和 L2 正则化分别起什么作用？",
+      "answer": "1. 学习率动态调整：用于在训练过程中根据阶段变化调整优化步长，从而改善训练稳定性和收敛效果。\n2. L2 正则化：用于抑制模型参数过大，降低过拟合风险。\n在蒸馏训练中，这两项都属于常见训练优化手段：前者侧重优化过程，后者侧重泛化能力。",
+      "category": "deepseek",
+      "tags": [
+        "这是一个高度简化的预期目标版本",
+        "<font style=\"color:rgb(0, 0, 0);\">蒸馏</font>",
+        "蒸馏",
+        "学习率",
+        "L2正则化",
+        "训练技巧"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "4d3951ce3c381619",
+      "type": "八股",
+      "question": "GRPO 训练中，`compute_loss` 为什么要将 `prompt_ids` 和 `completion_ids` 拼接后再计算，并且只保留 completion 部分的 logits？",
+      "answer": "在 `compute_loss` 中，输入通过以下方式构造：\n- `input_ids = torch.cat([prompt_ids, completion_ids], dim=1)`\n- `attention_mask = torch.cat([prompt_mask, completion_mask], dim=1)`\n这样做的原因是：\n1. 模型生成 completion 时依赖完整上下文，因此计算 completion token 的条件概率时，必须把 prompt 和 completion 拼接成完整序列输入模型。\n2. 虽然需要完整上下文参与前向计算，但训练目标只针对模型生成的 completion 部分，因此设置 `logits_to_keep = completion_ids.size(1)`，只保留 completion token 对应的 logits。\n3. 这样既保证了条件概率计算的正确性，又避免把 prompt 部分纳入损失，从而使优化目标聚焦于生成结果本身。\n因此，拼接是为了提供正确上下文，只保留 completion logits 是为了让损失只作用于待优化的生成 token。",
+      "category": "deepseek",
+      "tags": [
+        "这是一个高度简化的预期目标版本",
+        "GRPO",
+        "loss计算",
+        "token概率",
+        "上下文建模"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "fe20b10d7a6c18fc",
+      "type": "八股",
+      "question": "在 `num_iterations == 1` 时，为什么 `old_per_token_logps` 可以直接使用 `per_token_logps.detach()`？",
+      "answer": "当 `num_iterations == 1` 时，旧策略与当前策略实际上是同一个策略，因此旧策略的逐 token 对数概率与当前的 `per_token_logps` 相同。代码中直接使用：\n\n`old_per_token_logps = per_token_logps.detach()`\n\n原因是：\n1. 数值上两者相等，不需要额外重新计算旧策略概率。\n2. `detach()` 会切断梯度，避免旧策略分支参与反向传播，符合“旧策略作为固定基准”的语义。\n3. 这样可以减少不必要的计算开销，提高训练效率。\n\n因此，在单次迭代场景下，直接复用当前 log probability 的 detached 版本即可满足算法需求。",
+      "category": "deepseek",
+      "tags": [
+        "这是一个高度简化的预期目标版本",
+        "GRPO",
+        "old policy",
+        "detach",
+        "训练优化"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "c149e083d921fd3e",
+      "type": "八股",
+      "question": "GRPO 的最终 loss 是如何按有效 completion token 聚合的？为什么要乘以 `completion_mask`？",
+      "answer": "GRPO 中先得到逐 token 损失 `per_token_loss`，然后通过以下方式聚合为标量 loss：\n\n`loss = (per_token_loss * completion_mask).sum() / completion_mask.sum()`\n\n这样做的含义是：\n1. `completion_mask` 用于标记哪些位置是有效的 completion token，哪些位置是 padding 或无效位置。\n2. 将 `per_token_loss` 与 `completion_mask` 相乘，可以屏蔽无效 token，不让它们参与损失计算。\n3. 再对有效 token 的损失求和，并除以有效 token 数量 `completion_mask.sum()`，得到按有效 token 平均的 loss。\n\n这样可以保证不同样本长度下的损失具有可比性，同时避免 padding 对训练目标产生干扰。",
+      "category": "deepseek",
+      "tags": [
+        "这是一个高度简化的预期目标版本",
+        "GRPO",
+        "mask机制",
+        "loss聚合",
+        "padding处理"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "169027a04862cefb",
+      "type": "八股",
+      "question": "在混合专家（MoE）结构中，gating 机制的计算职责是什么？",
+      "answer": "gating 机制的职责是根据输入数据计算各个专家的权重。也就是说，输入先经过 gating 网络，由该网络为不同专家生成对应的权重，用于表示各专家在当前输入下的参与程度。",
+      "category": "deepseek",
+      "tags": [
+        "依此类推...",
+        "MoE",
+        "gating机制",
+        "专家权重",
+        "神经网络"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ca27e926597e5455",
+      "type": "八股",
+      "question": "什么是混合专家模型（MOE）？其核心组成和基本工作流程是什么？",
+      "answer": "混合专家模型（MOE, Mixture of Experts）是一种由多个专家网络和一个门控网络组成的模型结构。其核心思想是：根据输入特征，动态地将输入分配给不同专家处理，再将专家结果进行加权融合。\n\n基本组成包括：\n1. 专家网络（Expert）：多个相互独立的子模型，每个专家负责处理特定类型的数据或任务。\n2. 门控网络（Gate / Gating机制）：根据输入数据的特征，动态决定应该由哪些专家参与处理，以及各专家的权重。\n3. 输出融合模块：将各个专家的输出按照门控网络给出的权重进行加权求和，得到最终输出。\n\n基本工作流程包括：\n1. 将输入数据表示为向量，例如把输入文本转换为词嵌入向量。\n2. 门控网络读取输入特征，计算输入应分配给哪些专家。\n3. 被选中的专家分别对输入进行处理，产生各自输出。\n4. 按照门控网络确定的权重，对专家输出进行加权求和，形成最终模型输出。",
+      "category": "deepseek",
+      "tags": [
+        "[deepseek v3](https://www.zhihu.com/question/8423473404)",
+        "DeepSeekMOE:",
+        "DeepSeekMOE",
+        "MOE",
+        "专家网络",
+        "Gating",
+        "模型结构"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "6e892d23ca92377a",
+      "type": "八股",
+      "question": "MOE 中 gating 机制的职责是什么？它如何影响最终输出？",
+      "answer": "在 MOE 中，gating 机制的职责是根据输入数据的特征，动态决定输入应分配给哪个或哪些专家进行处理，并为各专家输出分配对应权重。\n\n它对最终输出的影响体现在两个方面：\n1. 路由作用：决定哪些专家参与当前输入的计算。\n2. 加权作用：决定各专家输出在最终结果中的贡献比例。\n\n因此，最终模型输出不是单个专家的结果，而是多个专家输出的加权和，权值由 gating 机制确定。",
+      "category": "deepseek",
+      "tags": [
+        "[deepseek v3](https://www.zhihu.com/question/8423473404)",
+        "DeepSeekMOE:",
+        "DeepSeekMOE",
+        "Gating",
+        "路由机制",
+        "输出融合"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "08b476786b8c87b5",
+      "type": "八股",
+      "question": "MOE 的最终输出是如何得到的？请说明计算逻辑。",
+      "answer": "MOE 的最终输出由各个专家网络的输出按照 gating 机制给出的权重进行加权求和得到。\n\n计算逻辑如下：\n1. 输入先被表示为向量形式，例如文本输入转换为词嵌入向量。\n2. gating 网络根据输入特征，计算每个专家对应的分配权重。\n3. 各个专家网络分别对输入进行处理，得到各自输出。\n4. 将所有专家输出按对应权重进行加权求和，得到最终模型输出。\n\n因此，MOE 的输出本质上是“专家输出的加权混合结果”，而不是固定由某一个专家独立产生。",
+      "category": "deepseek",
+      "tags": [
+        "[deepseek v3](https://www.zhihu.com/question/8423473404)",
+        "DeepSeekMOE:",
+        "DeepSeekMOE",
+        "MOE输出",
+        "加权和",
+        "计算流程"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "378486e4591d2a6b",
+      "type": "八股",
+      "question": "在 MOE 中，专家网络（Expert）与门控网络（Gate）分别承担什么职责？",
+      "answer": "在 MOE 中，专家网络和门控网络分工明确：\n\n1. 专家网络（Expert）的职责：\n   - 作为独立的子模型，对输入进行具体计算。\n   - 每个专家通常专注于特定类型的数据或任务。\n   - 输出该专家对当前输入的处理结果。\n\n2. 门控网络（Gate）的职责：\n   - 根据输入数据的特征，动态决定输入应分配给哪些专家。\n   - 为各专家分配权重。\n   - 控制最终输出中各专家结果的贡献比例。\n\n两者的关系是：Gate 负责“选谁、给多少权重”，Expert 负责“具体怎么处理输入”。最终由 Gate 给出的权重对 Expert 的输出进行融合。",
+      "category": "deepseek",
+      "tags": [
+        "[deepseek v3](https://www.zhihu.com/question/8423473404)",
+        "DeepSeekMOE:",
+        "DeepSeekMOE",
+        "Expert",
+        "Gate",
+        "职责划分",
+        "模型机制"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "9a5a2279fdedf5e3",
+      "type": "八股",
+      "question": "在混合专家（MoE）中，gating 权重通常如何由输入计算得到？",
+      "answer": "一种常见做法是先将输入表示（如 word_embeddings）送入门控层（gate layer）得到门控打分，然后对这些打分应用 softmax，得到各专家对应的 gating 权重。可表示为：1. gate_input = gate_layer(word_embeddings)；2. gating_weights = softmax(gate_layer_output)。其中 softmax 的作用是将门控打分归一化为一组权重。",
+      "category": "deepseek",
+      "tags": [
+        "示例： gating权重计算",
+        "MoE",
+        "Gating",
+        "Softmax",
+        "权重计算"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "341b0e7bcdac7eef",
+      "type": "八股",
+      "question": "混合专家（MoE）中最终输出是如何根据 gating 权重与各专家输出得到的？",
+      "answer": "最终输出通过对各个专家的输出按 gating 权重进行加权求和得到。也就是说，每个专家输出乘以对应的 gating 权重，再将所有专家的结果相加，形成模型的最终输出。",
+      "category": "deepseek",
+      "tags": [
+        "示例： gating权重计算",
+        "MoE",
+        "专家混合",
+        "加权求和",
+        "模型输出"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "c5d2a6bb5dc31079",
+      "type": "八股",
+      "question": "在混合专家（MoE）模型中，若多个专家网络的输出分别为 expert_output_i，对应的门控权重为 gating_weight_i，最终输出如何计算？",
+      "answer": "最终输出通常按专家输出与对应门控权重做加权求和：final_output = Σ(expert_output_i × gating_weight_i)。实现上可写为：final_output = sum(expert_output * gating_weight for expert_output, gating_weight in zip(expert_outputs, gating_weights))。这表示每个专家的贡献由门控网络分配的权重决定。",
+      "category": "deepseek",
+      "tags": [
+        "示例：混合输出计算",
+        "MoE",
+        "混合专家",
+        "门控网络",
+        "加权求和",
+        "输出计算"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "11260ae042f15fba",
+      "type": "八股",
+      "question": "混合专家（MoE）模型在训练时需要优化哪些参数？优化依据是什么？",
+      "answer": "训练时需要根据损失函数对模型参数进行优化，通常包括两部分参数：1. 专家网络的参数；2. gating 网络（门控网络）的参数。优化依据是模型的损失函数，例如交叉熵损失。通过最小化损失，使专家网络学习更好的表示能力，同时使 gating 网络学会为不同输入分配更合适的专家权重。",
+      "category": "deepseek",
+      "tags": [
+        "示例：混合输出计算",
+        "MoE",
+        "训练优化",
+        "损失函数",
+        "交叉熵",
+        "专家网络",
+        "门控网络"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "94a36e5115627cb0",
+      "type": "八股",
+      "question": "在 PyTorch 中，`criterion = nn.CrossEntropyLoss()` 的作用是什么？",
+      "answer": "`nn.CrossEntropyLoss()` 用于定义交叉熵损失函数，常用于多分类任务中衡量模型预测结果与真实标签之间的差异。在训练过程中，模型输出与目标标签会输入该损失函数，得到一个标量损失值，供反向传播和参数更新使用。",
+      "category": "deepseek",
+      "tags": [
+        "定义损失函数和优化器",
+        "PyTorch",
+        "损失函数",
+        "CrossEntropyLoss",
+        "深度学习"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "bdd2580b1b0d1287",
+      "type": "八股",
+      "question": "在 PyTorch 中，`optimizer = optim.Adam(model.parameters(), lr=1e-3)` 表示什么？其中各参数的含义是什么？",
+      "answer": "这行代码用于定义 Adam 优化器，用来根据损失函数的梯度更新模型参数。\n\n各部分含义如下：\n1. `optim.Adam(...)`：表示使用 Adam 优化算法。\n2. `model.parameters()`：表示将模型中所有可训练参数交给优化器管理和更新。\n3. `lr=1e-3`：表示学习率为 0.001，控制每次参数更新的步长。\n\n训练时，优化器会结合反向传播计算得到的梯度，对 `model.parameters()` 中的参数进行迭代更新。",
+      "category": "deepseek",
+      "tags": [
+        "定义损失函数和优化器",
+        "PyTorch",
+        "优化器",
+        "Adam",
+        "学习率",
+        "深度学习"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ee78961a2b7f72ad",
+      "type": "八股",
+      "question": "在使用 gate_weights[:, i].unsqueeze(-1) 对专家输出进行加权时，unsqueeze(-1) 的作用是什么？",
+      "answer": "unsqueeze(-1) 的作用是在最后一维增加一个维度，使 gate_weights[:, i] 的形状能够与 expert_i(x) 的输出形状对齐，从而支持按元素广播相乘。\n例如，若 gate_weights[:, i] 的形状是 [batch_size]，而专家输出 expert_i(x) 的形状是 [batch_size, hidden_dim]，则需要将前者变为 [batch_size, 1]，这样才能与 [batch_size, hidden_dim] 进行广播乘法，对每个样本的整条特征向量施加对应的 gating 权重。",
+      "category": "deepseek",
+      "tags": [
+        "示例：损失计算与优化",
+        "张量形状",
+        "broadcast",
+        "unsqueeze",
+        "PyTorch",
+        "MoE"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "6f1279eccb0a3a2d",
+      "type": "八股",
+      "question": "在 PyTorch 训练流程中，`optimizer.zero_grad()`、`loss.backward()` 和 `optimizer.step()` 分别起什么作用？标准调用顺序是什么？",
+      "answer": "标准调用顺序是：\n1. `optimizer.zero_grad()`：将优化器管理的参数梯度清零，避免与上一次迭代的梯度累积。\n2. `loss.backward()`：对当前损失执行反向传播，计算各参数的梯度。\n3. `optimizer.step()`：根据已经计算出的梯度更新模型参数。\n\n典型训练片段为：\n```python\nloss = loss_fn(final_output, target)\noptimizer.zero_grad()\nloss.backward()\noptimizer.step()\n```",
+      "category": "deepseek",
+      "tags": [
+        "示例：损失计算与优化",
+        "PyTorch",
+        "训练流程",
+        "反向传播",
+        "优化器"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "3fdc5cee7fe07924",
+      "type": "八股",
+      "question": "在示例 MOE 门控网络中，为什么输出层后通常要接 `softmax(dim=-1)`？",
+      "answer": "因为门控网络需要为多个专家生成一组可比较、可归一化的选择权重。在线性层输出后接 `softmax(dim=-1)` 的作用是：\n1. 将各专家对应的分数转换为归一化权重；\n2. 使所有专家权重之和为 1；\n3. 便于将这些权重用于对多个专家输出进行加权组合。\n\n因此，`softmax` 使门控输出能够直接表示各专家的相对选择概率或混合权重。",
+      "category": "deepseek",
+      "tags": [
+        "示例：损失计算与优化",
+        "MOE",
+        "gating",
+        "softmax",
+        "门控网络"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "0ed43d7a4a86ee35",
+      "type": "八股",
+      "question": "在使用 DataLoader(train_dataset, batch_size=32, shuffle=True) 准备训练数据时，batch_size 和 shuffle 参数分别表示什么？",
+      "answer": "batch_size=32 表示每次从数据集中取出 32 条样本组成一个批次进行迭代。shuffle=True 表示在每个训练轮次开始前对数据顺序进行随机打乱，以避免模型按固定顺序读取样本。",
+      "category": "deepseek",
+      "tags": [
+        "准备数据",
+        "DataLoader",
+        "batch_size",
+        "shuffle",
+        "数据准备"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "c8254b76c24eda2f",
+      "type": "八股",
+      "question": "给定 texts 和 labels 两个列表，构造 Dataset(texts, labels) 时需要满足什么基本对应关系？",
+      "answer": "texts 和 labels 需要一一对应，即每条文本样本都应有对应的标签，二者长度应一致，并且相同索引位置上的 text 与 label 表示同一个训练样本。",
+      "category": "deepseek",
+      "tags": [
+        "准备数据",
+        "Dataset",
+        "样本标签对应",
+        "数据准备"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "6938e557e6aca7e1",
+      "type": "八股",
+      "question": "在 PyTorch 中，使用验证集评估分类模型准确率的典型流程是什么？",
+      "answer": "典型流程如下：\n1. 调用 `model.eval()` 将模型切换到评估模式。\n2. 初始化统计变量，例如 `correct = 0`、`total = 0`。\n3. 使用 `with torch.no_grad():` 包裹验证过程，关闭梯度计算。\n4. 遍历验证数据加载器 `val_loader`，每次取出输入 `x` 和标签 `y`。\n5. 前向计算得到输出：`outputs = model(x)`。\n6. 使用 `torch.max(outputs.data, 1)` 在类别维度上取最大值对应的索引作为预测类别，其中第二个返回值是预测结果 `predicted`。\n7. 通过 `(predicted == y).sum().item()` 统计当前批次预测正确的样本数，并累加到 `correct`。\n8. 通过 `y.size(0)` 获取当前批次样本数，并累加到 `total`。\n9. 最终准确率计算为 `correct / total`，可格式化输出，例如 `print(f\"Validation Accuracy: {correct / total:.3f}\")`。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "PyTorch",
+        "模型评估",
+        "分类任务",
+        "准确率"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "e2d7ecf085aaab6a",
+      "type": "八股",
+      "question": "`model.eval()` 和 `torch.no_grad()` 在模型验证阶段分别起什么作用？",
+      "answer": "二者作用不同：\n1. `model.eval()`：将模型切换到评估模式。它用于告诉模型当前处于验证/测试阶段，使模型按评估模式执行前向计算。\n2. `torch.no_grad()`：关闭梯度计算。在该上下文中执行前向传播时，不会构建计算图，也不会为反向传播保存梯度相关信息。\n\n在验证阶段通常需要同时使用这两者：前者负责切换模型状态，后者负责避免不必要的梯度计算。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "PyTorch",
+        "eval",
+        "no_grad",
+        "验证阶段"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "4acaec3fd3fdd5c8",
+      "type": "八股",
+      "question": "在分类模型验证代码中，`torch.max(outputs.data, 1)` 的返回结果表示什么？如何得到预测类别？",
+      "answer": "`torch.max(outputs.data, 1)` 表示在第 1 维（通常是类别维度）上取最大值。它会返回两个结果：\n1. 每个样本在该维度上的最大值；\n2. 这些最大值对应的索引。\n\n验证分类结果时，通常使用第二个返回值作为预测类别，例如：\n`_, predicted = torch.max(outputs.data, 1)`\n其中 `predicted` 就是每个样本预测所属的类别索引。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "PyTorch",
+        "torch.max",
+        "分类预测",
+        "张量操作"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "6f9ee1e6fc107782",
+      "type": "八股",
+      "question": "在验证分类模型准确率时，`correct += (predicted == y).sum().item()` 和 `total += y.size(0)` 分别统计的是什么？最终准确率如何计算？",
+      "answer": "这两句代码分别用于累计正确预测数和样本总数：\n1. `predicted == y` 会逐元素比较预测标签和真实标签，得到布尔张量。\n2. `(predicted == y).sum().item()` 会统计当前批次中预测正确的样本个数，并将其累加到 `correct`。\n3. `y.size(0)` 表示当前批次的样本数量，并将其累加到 `total`。\n\n最终准确率计算公式为：\n`accuracy = correct / total`\n输出时可格式化为小数，例如保留三位：`{correct / total:.3f}`。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "PyTorch",
+        "准确率",
+        "指标计算",
+        "分类任务"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "4c5f2c7c88c7bae0",
+      "type": "八股",
+      "question": "在 PyTorch 的标准训练循环中，`optimizer.zero_grad()`、前向传播、`loss.backward()`、`optimizer.step()` 的执行顺序是什么？各自的作用分别是什么？",
+      "answer": "标准执行顺序为：\n1. `optimizer.zero_grad()`：将优化器管理的参数梯度清零，避免与上一个 batch 的梯度累积。\n2. `outputs = model(x)`：执行前向传播，得到模型输出。\n3. `loss = criterion(outputs, y)`：根据模型输出和真实标签计算损失。\n4. `loss.backward()`：执行反向传播，计算损失对各参数的梯度，并将梯度写入参数的 `.grad`。\n5. `optimizer.step()`：根据当前参数梯度，按优化算法更新模型参数。\n这个顺序不能随意颠倒，否则会导致梯度错误累积或参数更新不正确。",
+      "category": "deepseek",
+      "tags": [
+        "训练模型",
+        "PyTorch",
+        "训练循环",
+        "反向传播",
+        "优化器"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "e43ca066736768d5",
+      "type": "八股",
+      "question": "`model.train()` 在训练循环中的作用是什么？",
+      "answer": "`model.train()` 用于将模型切换到训练模式。训练模式下，模型中依赖训练/推理状态的模块会按训练行为工作，例如 Dropout 会随机失活神经元，BatchNorm 会使用当前 batch 的统计量并更新运行统计信息。通常在每个 epoch 开始训练前调用，以确保模型处于正确的训练状态。",
+      "category": "deepseek",
+      "tags": [
+        "训练模型",
+        "PyTorch",
+        "model.train",
+        "训练模式"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "cc822fd6ee60d46c",
+      "type": "八股",
+      "question": "为什么在每个 batch 训练前通常都要调用 `optimizer.zero_grad()`？",
+      "answer": "因为在 PyTorch 中，参数梯度默认是累积的。如果不在每个 batch 前调用 `optimizer.zero_grad()`，当前 batch 计算得到的梯度会叠加到上一个 batch 的梯度上，导致参数更新使用错误的累计梯度。标准的小批量训练通常希望每个 batch 独立计算梯度，因此需要先清零。",
+      "category": "deepseek",
+      "tags": [
+        "训练模型",
+        "PyTorch",
+        "梯度清零",
+        "梯度累积"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "797972b1000201ae",
+      "type": "八股",
+      "question": "在训练循环中，`loss.backward()` 和 `optimizer.step()` 分别负责什么？两者有什么区别？",
+      "answer": "`loss.backward()` 负责反向传播，计算损失函数对模型各参数的梯度，并将结果保存到参数的 `.grad` 中；`optimizer.step()` 负责读取这些梯度，并按照优化器的更新规则实际修改模型参数。\n区别在于：\n- `loss.backward()` 只计算梯度，不更新参数。\n- `optimizer.step()` 不负责求梯度，只负责利用已有梯度更新参数。",
+      "category": "deepseek",
+      "tags": [
+        "训练模型",
+        "PyTorch",
+        "loss.backward",
+        "optimizer.step",
+        "参数更新"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "b341251fe5677671",
+      "type": "八股",
+      "question": "给定训练循环 `for epoch in range(num_epochs): for batch, (x, y) in enumerate(train_loader): ...`，其中 epoch 和 batch 分别表示什么？",
+      "answer": "- `epoch` 表示完整遍历一次整个训练集的轮次。\n- `batch` 表示当前遍历到的小批量数据的索引。\n- `(x, y)` 表示从 `train_loader` 中取出的一个 batch 数据，其中 `x` 是输入数据，`y` 是对应标签。\n整个训练过程是在每个 epoch 中，按 batch 逐批读取训练数据并完成一次前向、反向和参数更新。",
+      "category": "deepseek",
+      "tags": [
+        "训练模型",
+        "训练循环",
+        "epoch",
+        "batch",
+        "DataLoader"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "8c81b1b6fa8d1da4",
+      "type": "八股",
+      "question": "DeepSeekMoE 中共享专家与路由专家在计算职责上有什么区别？",
+      "answer": "两者的职责区别如下：\n1. 共享专家：对 token 使用共享专家 FFN 进行计算，其输出作为所有 token 都会参与的共享部分。\n2. 路由专家：对 token 使用路由专家 FFN 进行计算，并通过门控值 g_{i,t} 选择需要激活的专家，其输出属于按路由选择的动态部分。\n3. 最终输出由共享专家输出和路由专家输出相加得到，因此共享专家负责稳定的共享计算，路由专家负责按门控选择的专家化计算。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">DeepSeekMoE：辅助损失免费负载平衡</font>",
+        "DeepSeekMoE",
+        "共享专家",
+        "路由专家",
+        "门控机制",
+        "MoE"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "56ec1e4f02efee19",
+      "type": "八股",
+      "question": "DeepSeek-V3 的辅助损失免费负载平衡策略是如何实现 top-K 路由选择的？",
+      "answer": "DeepSeek-V3 通过在专家的亲和度分数 s_{i,t} 上引入偏置项 b_i 来实现辅助损失免费的负载平衡。具体做法是：\n1. 对每个专家 i，为其设置一个偏置项 b_i。\n2. 在进行路由选择时，将偏置项 b_i 加到对应的亲和度分数 s_{i,t} 上。\n3. 基于加入偏置后的分数进行 top-K 路由选择。\n4. 通过动态调整这些偏置项，可以在整个训练过程中维持更平衡的专家负载，而不依赖额外的辅助损失项。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">DeepSeekMoE：辅助损失免费负载平衡</font>",
+        "DeepSeek-V3",
+        "负载均衡",
+        "top-K路由",
+        "偏置项",
+        "亲和度分数"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "9cfadc15e20b184b",
+      "type": "八股",
+      "question": "DeepSeek-V3 的辅助损失免费负载平衡策略中，偏置项 b_i 的作用是什么？",
+      "answer": "偏置项 b_i 的作用是直接调节各专家在路由选择时的得分。具体来说，它被加到对应专家的亲和度分数 s_{i,t} 上，从而影响 top-K 路由结果。通过动态调整 b_i，可以在训练过程中持续调控各专家被选中的概率，使专家负载保持平衡，同时避免依赖辅助损失来实现负载均衡。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">DeepSeekMoE：辅助损失免费负载平衡</font>",
+        "DeepSeek-V3",
+        "偏置项",
+        "负载均衡",
+        "路由机制",
+        "MoE"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "0e0f4f42d67521d7",
+      "type": "八股",
+      "question": "在 MTP（Multi-Token Prediction）中，第 i 个位置在第 k 个预测深度的输入表征是如何构造的？",
+      "answer": "构造过程如下：\n1. 取第 k-1 层的隐层输出 h_i^{k-1}∈R^d，并对其做 RMSNorm 归一化。\n2. 取位置 i+k 的 token embedding，即 Emb(t_{i+k})∈R^d，并对其做 RMSNorm 归一化。\n3. 将这两个归一化后的 d 维向量进行 concat，得到一个 2d 维向量。\n4. 使用投影矩阵 M_k∈R^{d×2d} 对该 2d 维向量做线性变换，得到 d 维表示 \\hat{h}_i^k。\n5. 再将 \\hat{h}_i^k 输入到 Transformer 层，得到第 k 个预测深度的输出 h_i^k。\n其中，当 k=1 时，h_i^{k-1} 对应主模型的隐层表征。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "Multi-Token Prediction",
+        "Transformer",
+        "RMSNorm",
+        "Embedding",
+        "线性投影"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "0b59dc732b0e472f",
+      "type": "八股",
+      "question": "MTP 中用于融合上一层隐状态与未来 token embedding 的投影矩阵 M_k 的维度为什么是 d×2d？",
+      "answer": "因为融合前的输入由两个 d 维向量拼接而成：\n1. 上一层隐状态的归一化结果 RMSNorm(h_i^{k-1})∈R^d；\n2. 未来位置 token embedding 的归一化结果 RMSNorm(Emb(t_{i+k}))∈R^d。\n二者 concat 后得到 2d 维向量，因此线性投影的输入维度必须是 2d。为了将融合结果映射回模型隐层维度，输出维度设为 d，所以投影矩阵 M_k 的形状为 R^{d×2d}。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "矩阵维度",
+        "线性层",
+        "Embedding",
+        "隐状态"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ef2f46ad87f68079",
+      "type": "八股",
+      "question": "在 MTP 的第 k 个预测深度中，RMSNorm 分别作用于哪些张量？这些张量各自表示什么？",
+      "answer": "RMSNorm 作用于两个张量：\n1. h_i^{k-1}：表示第 i 个位置在第 k-1 层的隐层输出，维度为 R^d。对于 k=1，它对应主模型的隐层表征。\n2. Emb(t_{i+k})：表示位置 i+k 的 token embedding，维度为 R^d。\n这两个张量分别代表当前位置已有的隐状态信息，以及目标未来位置的 token 嵌入信息。二者先分别归一化，再进行拼接和线性投影。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "RMSNorm",
+        "隐层输出",
+        "Token Embedding"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "87afcf4deac9e153",
+      "type": "八股",
+      "question": "MTP 中第 k 个预测深度的输出 h_i^k 是如何得到的？",
+      "answer": "第 k 个预测深度的输出 h_i^k 分两步得到：\n1. 先将 RMSNorm(h_i^{k-1}) 与 RMSNorm(Emb(t_{i+k})) 拼接后，通过投影矩阵 M_k∈R^{d×2d} 做线性变换，得到中间表示 \\hat{h}_i^k。\n2. 再将 \\hat{h}_i^k 输入到 Transformer 层，得到最终输出 h_i^k。\n因此，h_i^k 不是直接由拼接结果得到，而是由“归一化 + 拼接 + 线性投影 + Transformer 层”这一串过程产生。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "Transformer层",
+        "预测深度",
+        "前向过程"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "90b075b5125a8ddb",
+      "type": "八股",
+      "question": "什么是多 token 预测（MTP）训练目标？它相对传统 token-by-token 预测扩展了什么能力？",
+      "answer": "多 token 预测（MTP）是一种将预测目标从“每个位置只预测下一个 token”扩展为“每个位置预测多个未来 token”的训练目标。相对传统的 token-by-token 预测，MTP 的核心扩展在于：\n1. 预测范围更大：在同一位置不只预测下一个 token，而是预测多个后续 token。\n2. 训练信号更丰富：同一位置可提供多个未来位置的监督信号，从而提高数据效率。\n3. 预测能力更强：通过同时建模更远的未来 token，增强模型对后续内容的规划与表示能力。\n4. 性能提升机制：通过预先规划未来 token 的表示来提升模型表现。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "Multi-Token Prediction",
+        "训练目标",
+        "LLM"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ba5906dd6b40230d",
+      "type": "八股",
+      "question": "传统 decoder-only 大模型在 token-by-token 生成时，训练或推理瓶颈主要体现在哪里？",
+      "answer": "传统 decoder-only 大模型在 token-by-token 生成时的主要瓶颈是访存密集带来的效率问题。具体表现为：\n1. 每生成一个 token，都需要频繁与访存交互。\n2. 每一步都要加载 KV-Cache。\n3. 每一步都要经过多层网络做完整前向计算。\n4. 对于这类访存密集型任务，访存效率往往会成为训练或推理的瓶颈。\n因此，token-by-token 的逐步生成方式容易受到访存开销限制。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "Decoder-only",
+        "token-by-token",
+        "KV-Cache",
+        "推理瓶颈",
+        "访存"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "c3a916252cb2d73d",
+      "type": "八股",
+      "question": "MTP 的模块化结构是怎样的？如果要预测 D 个额外 token，需要如何组织模块？",
+      "answer": "MTP 采用顺序堆叠的模块化结构。若要预测 D 个额外 token，则使用 D 个连续的模块来完成，每个模块对应一个额外未来 token 的预测。其组织方式包括：\n1. 使用 D 个顺序模块，按序预测 D 个 token。\n2. 模块之间保留序列推理的连接关系（causal chain），即前一个模块的结果会传递给后继模块。\n3. 这种设计不是彼此完全独立地并行预测多个 token，而是通过模块间连接保留因果链条。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "模块结构",
+        "causal chain",
+        "多步预测"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "2c7e2c8a6e836478",
+      "type": "八股",
+      "question": "一个 MTP 模块包含哪些组成部分？各模块中哪些部分是共享的？",
+      "answer": "每个 MTP 模块包含以下组成部分：\n1. 一个共享嵌入层（shared embedding layer）；\n2. 一个共享输出头（shared output head）；\n3. 一个 Transformer 模块；\n4. 一个投影矩阵（projection matrix）。\n其中，明确说明为共享的部分是：\n- 共享嵌入层；\n- 共享输出头。\n模块内部还会利用线性投影将 token 表示与嵌入进行连接，再通过 Transformer 模块生成输出表示，并计算额外预测 token 的概率分布。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "模块组成",
+        "共享嵌入层",
+        "共享输出头",
+        "Transformer"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "7eec97b376be16a7",
+      "type": "八股",
+      "question": "MTP 模块内部是如何从表示到预测额外 token 概率分布的？",
+      "answer": "MTP 模块内部的处理流程可以概括为：\n1. 先使用线性投影，将 token 的表示与嵌入相连接；\n2. 再将连接后的结果送入 Transformer 模块；\n3. Transformer 模块生成输出表示；\n4. 基于该输出表示，计算额外预测 token 的概率分布。\n因此，MTP 模块并不是直接从原始隐藏状态输出多个 token，而是通过“表示与嵌入连接 + Transformer 变换 + 输出分布计算”的方式完成额外 token 的预测。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "线性投影",
+        "Transformer",
+        "概率分布",
+        "实现流程"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "48fcdbd49eb72304",
+      "type": "八股",
+      "question": "MTP 结构中保留序列推理连接关系（causal chain）意味着什么？",
+      "answer": "在 MTP 结构中保留序列推理连接关系（causal chain），意味着多个预测模块之间不是完全独立的，而是存在从前一模块到后一模块的顺序依赖。具体来说：\n1. 模块之间有连接关系，前一个模块的输出或中间结果会传递给后继模块；\n2. 这种设计保留了序列生成中的因果链条；\n3. 因而 MTP 虽然一次扩展到多个未来 token 的预测，但实现上仍维持了序列推理的顺序结构，而不是简单地把多个未来位置当作彼此无关的并行分类任务。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "causal chain",
+        "因果关系",
+        "序列推理"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "bc0c37295c554136",
+      "type": "八股",
+      "question": "在 MTP（Multi-Token Prediction）中，隐藏状态 h_i^k 经过输出头后对应预测哪个位置的 token？输出概率是如何得到的？",
+      "answer": "对于第 k 个 MTP 模块产生的隐藏状态 h_i^k，其监督标签对应位置是 i+1+k 的 token。也就是说，它不是预测当前位置的下一个 token，而是预测更靠后的第 k+1 个未来 token。输出概率的计算方式是：先将 h_i^k 通过所有 Module 共享的映射矩阵 OutHead∈R^{V×d} 投影到词表维度，再经过 softmax，得到词表大小 V 上的概率分布。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "多token预测",
+        "输出头",
+        "softmax",
+        "标签对齐"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ff1581aea034c03a",
+      "type": "八股",
+      "question": "MTP 训练时各个预测头的损失如何计算？标签下标区间 2+k:T+1 分别表示什么？",
+      "answer": "MTP 训练时，对每个 MTP Module Head 分别使用 CrossEntropyLoss 计算损失。标签下标区间 2+k:T+1 表示该预测头所对应的监督目标范围：\n1. 起始下标 2+k：表示第 k 个 MTP 模块在输入第一个 token t1 时，预测的第一个标签是 t_{2+k}。例如，MTP Model 1 预测的是 next-next token，因此第一个标签是 t3。\n2. 结束下标 T+1：表示序列在原始长度 T 的基础上额外补了一个 eos token，因此 token 的最大下标到 T+1。\n因此，不同的 MTP 头通过不同偏移量的标签序列进行监督，每个头都学习预测不同步长的未来 token。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "训练",
+        "CrossEntropyLoss",
+        "标签构造",
+        "eos"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "fff1c83168b0d27a",
+      "type": "八股",
+      "question": "为什么 MTP 训练中的标签序列需要在原序列后额外增加一个 eos token，并将结束下标设为 T+1？",
+      "answer": "因为 MTP 需要对未来多个位置进行监督，如果只使用原始长度为 T 的序列，靠近序列尾部的位置会缺少足够的目标 token，无法完整构造多步预测标签。为了解决这个问题，训练样本会在原序列后额外增加一个 eos token，使 token 下标扩展到 T+1。这样可以为尾部位置提供合法的结束目标，并统一各个 MTP 头的标签构造范围。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "训练样本构造",
+        "eos",
+        "序列边界"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "9939401656cf03b4",
+      "type": "八股",
+      "question": "MTP 在推理阶段有哪些使用方式？它们各自的特点是什么？",
+      "answer": "MTP 在推理阶段有两种方式：\n1. 删除所有 MTP 头，仅保留主模型作为 next-token predictor：此时模型退化为普通的自回归语言模型，推理流程与常规 LLM 一致，但没有额外加速效果。\n2. 保留 MTP 模块，进行 self-speculative decoding：这样可以利用多头的多 token 预测能力，从而提升推理加速性能。\n因此，两种方式的核心区别在于是否保留 MTP 头参与推理；前者实现简单但无加速，后者能够利用 MTP 的多头预测能力进行加速。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "推理",
+        "self-speculative decoding",
+        "推理加速"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "52f3daac931ad905",
+      "type": "八股",
+      "question": "MTP 中多个 Module 为什么可以共享同一个输出映射矩阵 OutHead？共享后输出的共同形式是什么？",
+      "answer": "在 MTP 中，不同 Module 虽然预测的是不同偏移位置的未来 token，但它们最终都需要输出同一个词表空间上的概率分布，因此可以共享同一个输出映射矩阵 OutHead∈R^{V×d}。共享后，每个模块都会将各自的隐藏状态映射到词表维度 V，再通过 softmax 得到对应的词表概率分布。也就是说，各模块的差异主要体现在预测目标位置不同，而输出空间形式是一致的。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">MTP(Multi-Token Prediction)多 token 预测</font>",
+        "MTP",
+        "参数共享",
+        "OutHead",
+        "词表概率"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "a3b692624b531fd5",
+      "type": "八股",
+      "question": "FP8 混合精度训练框架的基本做法是什么？",
+      "answer": "FP8 混合精度训练的基本做法是：对大多数计算密集型操作使用 FP8 数据格式，以提升训练速度并降低 GPU 内存占用；同时对一些关键操作保留原始数据格式，以在训练效率和数值稳定性之间取得平衡。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "基础设施：高效训练的基石",
+        "<font style=\"color:rgb(25, 27, 31);\">FP8 训练</font>",
+        "FP8",
+        "混合精度训练",
+        "数值稳定性",
+        "训练加速"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "66ea685a3cb97cd0",
+      "type": "八股",
+      "question": "细粒度量化在低精度训练中的具体做法和作用是什么？",
+      "answer": "细粒度量化的具体做法是：将激活和权重划分为多个组，并对每个组分别进行缩放。其作用是更好地适应异常值，从而提升低精度表示下的量化精度和训练稳定性。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "基础设施：高效训练的基石",
+        "<font style=\"color:rgb(25, 27, 31);\">FP8 训练</font>",
+        "细粒度量化",
+        "激活",
+        "权重",
+        "异常值",
+        "低精度训练"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ba3f04d71973ebd2",
+      "type": "八股",
+      "question": "在低精度训练中，为什么要将部分结果复制到 FP32 寄存器中进行累积？",
+      "answer": "这样做是为了提高累积过程的精度。低精度格式在连续累加时更容易产生误差，因此将部分结果复制到 FP32 寄存器中进行全精度累积，可以减少累积误差，提升整体训练精度。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "基础设施：高效训练的基石",
+        "<font style=\"color:rgb(25, 27, 31);\">FP8 训练</font>",
+        "FP32",
+        "累积精度",
+        "低精度训练",
+        "数值误差"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "9e334572af2e5c25",
+      "type": "八股",
+      "question": "AdamW 优化器状态在低精度训练中如何存储？具体跟踪哪些量？",
+      "answer": "在低精度训练中，AdamW 优化器状态使用 BF16 格式存储，用于跟踪第一矩和第二矩。这样可以降低内存开销。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "基础设施：高效训练的基石",
+        "<font style=\"color:rgb(25, 27, 31);\">FP8 训练</font>",
+        "AdamW",
+        "优化器状态",
+        "BF16",
+        "第一矩",
+        "第二矩"
+      ],
+      "difficulty": "易",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "8047e75b05339323",
+      "type": "八股",
+      "question": "DualPipe 是什么，它主要解决了什么问题，核心机制是什么？",
+      "answer": "DualPipe 是一种新型管道并行算法，主要用于解决跨节点专家并行带来的通信开销问题。\n\n其核心机制是：\n1. 在训练过程中重叠正向传播与反向传播阶段的计算和通信。\n2. 通过这种重叠执行方式，提高训练吞吐。\n3. 同时减少管道中的气泡（pipeline bubbles），从而提升整体训练效率。\n\n因此，DualPipe 的关键价值在于通过计算与通信重叠，缓解跨节点 EP 场景下的通信瓶颈。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "基础设施：高效训练的基石",
+        "训练框架",
+        "DualPipe",
+        "管道并行",
+        "通信优化",
+        "Expert Parallelism",
+        "训练加速"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "54d2bba704072841",
+      "type": "八股",
+      "question": "在训练过程中将 EMA 放在 CPU 上维护，有什么作用和工程收益？",
+      "answer": "在训练过程中，将模型参数的指数移动平均（EMA）保存在 CPU 上，作用和收益包括：\n1. 用于早期估计模型性能。\n2. 通过异步更新 EMA 参数，避免引入额外的内存开销。\n3. 通过异步更新方式，也避免带来额外的时间开销。\n\n因此，这种做法既保留了 EMA 对模型评估的价值，又降低了对训练主流程资源的影响。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "基础设施：高效训练的基石",
+        "训练框架",
+        "EMA",
+        "CPU",
+        "内存优化",
+        "异步更新",
+        "训练工程"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "7526122a26412c60",
+      "type": "八股",
+      "question": "监督微调中为什么要对每个序列进行多样本打包，并配合样本掩码策略？",
+      "answer": "训练时每个序列由多个样本打包，以提高训练组织效率；同时使用样本掩码策略，目的是确保同一序列中的不同示例彼此隔离、相互不可见，避免样本之间发生信息泄漏或相互干扰。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">后训练：</font>[知识蒸馏](https://zhida.zhihu.com/search?content_id=707009763&content_type=Answer&match_order=1&q=%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F&zhida_source=entity)<font style=\"color:rgb(25, 27, 31);\">与强化学习</font>",
+        "<font style=\"color:rgb(25, 27, 31);\">监督微调（Supervised Fine-Tuning ）</font>",
+        "监督微调",
+        "样本打包",
+        "样本掩码",
+        "训练机制",
+        "工程实现"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ce63c140333fa905",
+      "type": "八股",
+      "question": "在强化学习阶段，基于规则的奖励系统与基于模型的奖励模型分别适用于哪些类型的问题？",
+      "answer": "两者的适用场景可以按问题是否可验证、是否存在明确真实答案来区分：\n1. 对于可验证的、具有特定规则的问题，使用基于规则的奖励系统来确定反馈。\n2. 对于答案是自由格式、但存在预期真实答案的问题，使用奖励模型判断生成答案是否与预期真实答案匹配。\n3. 对于没有明确真实答案的问题，奖励模型根据问题和答案本身提供反馈。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">后训练：</font>[知识蒸馏](https://zhida.zhihu.com/search?content_id=707009763&content_type=Answer&match_order=1&q=%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F&zhida_source=entity)<font style=\"color:rgb(25, 27, 31);\">与强化学习</font>",
+        "<font style=\"color:rgb(25, 27, 31);\">强化学习</font>",
+        "强化学习",
+        "奖励模型",
+        "规则奖励",
+        "反馈机制"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "54cca156edc286f9",
+      "type": "八股",
+      "question": "GRPO（组相对策略优化）的核心特点是什么？它与依赖评论模型的做法有何区别？",
+      "answer": "GRPO 的核心特点是：放弃与策略模型同等规模的评论模型（critic model），转而从组分数中估计基线。\n\n区别在于：\n1. 传统依赖评论模型的做法需要一个与策略模型同大小的评论模型来提供价值或基线估计。\n2. GRPO 不再引入这样一个大规模评论模型，而是利用组内样本的得分来估计基线。\n3. 因此，GRPO 的关键机制是“基于组分数估计基线”，而不是“显式训练一个同规模 critic”。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">后训练：</font>[知识蒸馏](https://zhida.zhihu.com/search?content_id=707009763&content_type=Answer&match_order=1&q=%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F&zhida_source=entity)<font style=\"color:rgb(25, 27, 31);\">与强化学习</font>",
+        "<font style=\"color:rgb(25, 27, 31);\">强化学习</font>",
+        "强化学习",
+        "GRPO",
+        "策略优化",
+        "基线估计"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    },
+    {
+      "id": "ff4ec2f30ec8556c",
+      "type": "八股",
+      "question": "DeepSeek-V3 的多 token 预测技术在解码阶段有什么作用，其额外预测 token 的接受率是多少？",
+      "answer": "DeepSeek-V3 的多 token 预测技术可以显著加速模型的解码速度。该技术中额外预测 token 的接受率在 85% 到 90% 之间，这表明其具有较高的可靠性。",
+      "category": "deepseek",
+      "tags": [
+        "评估模型",
+        "<font style=\"color:rgb(25, 27, 31);\">讨论</font>",
+        "<font style=\"color:rgb(25, 27, 31);\">结论、局限性和未来方向</font>",
+        "DeepSeek-V3",
+        "多token预测",
+        "解码加速",
+        "接受率"
+      ],
+      "difficulty": "中",
+      "source_doc": "⓵_deepseek__toxxtxikhx1wgns4.md"
+    }
+  ]
