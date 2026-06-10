@@ -40,6 +40,7 @@ def cmd_parse(args):
         use_llm=not args.no_llm,
         concurrency=args.concurrency,
         resume=not args.no_resume,
+        reflect=not args.no_reflect,
     )
 
 
@@ -75,7 +76,11 @@ def cmd_run(args):
     else:
         print("跳过导出（未提供 --namespace / --local），直接使用 data/raw 现有文档。")
 
-    questions = parse_all(use_llm=not args.no_llm, concurrency=args.concurrency)
+    questions = parse_all(
+        use_llm=not args.no_llm,
+        concurrency=args.concurrency,
+        reflect=not args.no_reflect,
+    )
     if not questions:
         return
     kept, embeddings = run_qc(questions, use_semantic=not args.no_semantic)
@@ -109,6 +114,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--no-llm", action="store_true", help="仅用规则解析，不调用 LLM")
     sp.add_argument("--concurrency", type=int, default=4, help="LLM 抽取并发度（默认 4）")
     sp.add_argument("--no-resume", action="store_true", help="不使用断点续跑缓存，全量重跑")
+    sp.add_argument("--no-reflect", action="store_true", help="关闭抽取后的 LLM 反思过滤")
     sp.set_defaults(func=cmd_parse)
 
     sp = sub.add_parser("qc", help="去重 + 导出人工抽检清单")
@@ -129,6 +135,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--no-llm", action="store_true")
     sp.add_argument("--no-semantic", action="store_true")
     sp.add_argument("--concurrency", type=int, default=4, help="LLM 抽取并发度（默认 4）")
+    sp.add_argument("--no-reflect", action="store_true", help="关闭抽取后的 LLM 反思过滤")
     sp.set_defaults(func=cmd_run)
 
     return p
