@@ -20,7 +20,7 @@ from .chunker import Chunk, chunk_markdown
 from .config import PARSED_DIR
 from .exporter import iter_raw_docs
 from .llm import LLMClient
-from .models import Question
+from .models import Question, QuestionKind
 
 # 断点续跑缓存：记录每个 LLM 块的抽取结果（按块指纹），重跑时跳过已完成块
 CACHE_PATH = PARSED_DIR / ".llm_cache.json"
@@ -122,6 +122,31 @@ def _heading_tags(heading: str) -> list[str]:
     return [t.strip() for t in heading.split(" / ") if t.strip()]
 
 
+# 题目提问角度分类：按优先级顺序匹配题干，命中第一个即归类。
+_KIND_PATTERNS: list[tuple[QuestionKind, str]] = [
+    (QuestionKind.COMPARE, r"区别|不同|差异|对比|相比|和.{1,12}的(区别|关系)|与.{1,12}(相比|的区别)|哪个更"),
+    (QuestionKind.PRINCIPLE, r"原理|机制|如何(工作|实现|运作|计算)|怎样(实现|工作)|底层|本质上是"),
+    (QuestionKind.PURPOSE, r"作用|用途|目的|用来|用于|解决(了)?什么(问题)?|为了(什么|解决)|意义"),
+    (QuestionKind.WHY, r"^为什么|为何|为什么(要|需要|不|会)|动机|出于什么"),
+    (QuestionKind.SCENARIO, r"场景|适用|什么(情况|时候)(下|适合)|何时(使用|采用)|应用于"),
+    (QuestionKind.METHOD, r"如何(选择|设计|优化|处理|避免|解决|缓解|配置)|怎样(选择|设计|优化|处理|解决)|怎么(做|办|选|解决)"),
+    (QuestionKind.DEFINITION, r"^什么是|是什么|的定义|指(的)?是|叫做|称为"),
+    (QuestionKind.TRADEOFF, r"优点|缺点|优劣|优势|劣势|取舍|权衡|利弊|局限|不足|缺陷"),
+    (QuestionKind.CLASSIFY, r"分(为|成)|有哪(几|些)(种|类|个)|包括(哪些)?|组成|构成|几个(部分|阶段|模块)|哪几(类|种)"),
+    (QuestionKind.PROCEDURE, r"步骤|流程|过程|顺序|先.{0,6}后|阶段"),
+]
+_KIND_COMPILED = [(k, re.compile(p)) for k, p in _KIND_PATTERNS]
+
+
+def classify_question_kind(question: str) -> QuestionKind:
+    """按题干句式判定提问角度类型，无命中归为 OTHER。"""
+    q = question or ""
+    for kind, pat in _KIND_COMPILED:
+        if pat.search(q):
+            return kind
+    return QuestionKind.OTHER
+
+
 def rule_parse_chunk(chunk: Chunk, source_doc: str) -> list[Question]:
     """对显式问答结构的块做正则切分。返回空列表代表规则不适用。"""
     lines = chunk.text.splitlines()
@@ -141,6 +166,7 @@ def rule_parse_chunk(chunk: Chunk, source_doc: str) -> list[Question]:
                 answer="\n".join(cur_a).strip(),
                 category=category,
                 tags=heading_tags,
+                question_kind=classify_question_kind(cur_q),
                 source_doc=source_doc,
             )
             if q.is_valid():
@@ -336,6 +362,9 @@ def _items_to_questions(raw_items: list[dict], chunk: Chunk, source_doc: str) ->
                 seen.add(ts)
                 merged.append(ts)
         item["tags"] = merged
+        # 提问角度类型由系统判定，忽略模型可能输出的值
+        item.pop("question_kind", None)
+        item["question_kind"] = classify_question_kind(item.get("question", ""))
         try:
             q = Question(**item)
         except Exception:

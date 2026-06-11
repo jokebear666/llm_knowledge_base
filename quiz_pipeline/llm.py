@@ -102,6 +102,40 @@ REFLECT_USER_TEMPLATE = """请审查以下 {n} 道题：
 请输出 JSON，格式 {{"results": [{{"index": 0, "keep": true/false, "reason": "..."}}, ...]}}。"""
 
 
+# ===== 问答题 -> 选择题：基于题干与参考答案生成单选/多选 =====
+TO_CHOICE_SYSTEM_PROMPT = """你是资深面试出题专家。你会收到一道问答题（题干 question + 参考答案 answer），\
+请把它改造成一道**选择题**。
+
+【判定单选还是多选】
+- 若该题的正确答案本质上是“一个确定的结论/定义/原理”，做成**单选**（single）：1 个正确项 + 3 个干扰项。
+- 若该题考“有哪些、区别、优缺点、组成、特点、步骤”等**天然有多个并列正确要点**的内容，做成**多选**（multiple）。
+- 多选的正确项数量**按实际情况来，不设上限**：参考答案里有几个相互独立、都成立的要点，就给几个正确项（可以是 2 个、4 个、6 个……）。不要硬凑也不要硬砍。
+- 多选必须确实有 >=2 个相互独立、都成立的正确项；凑不出 2 个就退化为单选。
+
+【正确项要求】
+- 忠实于原始参考答案的含义，**不要改变事实/结论**，但每个正确项要**压缩到 100 字以内**（过长会影响做题体验）。保留关键信息，去掉冗余修饰与举例，措辞尽量贴近原文。
+- 多选时，把参考答案中各个独立要点**拆分**成多个正确项，每个要点单独成一项并各自压缩到 100 字以内。
+- 单选时，正确项是表达完整结论的一句话，压缩到 100 字以内。
+
+【干扰项要求（关键）】
+- 似是而非：看起来合理、与题目同领域，但事实上是错误的（常见误解、易混淆概念、张冠李戴、以偏概全）。
+- 不能与任何正确项语义重复，不能是“以上都对/都不对”。
+- 长度、风格、详略与正确项接近（同样控制在 100 字以内），避免正确项明显更长/更完整而泄题。
+- 干扰项数量保证选项总数合理（单选共 4 个选项；多选的干扰项数量与正确项相当即可，不必相等）。
+
+注意：原始完整答案会另外保留作为“答案解析”，所以选项只需精炼到能判断对错即可，不必承载全部细节。
+
+严格以 JSON 输出，不要任何额外文字：
+{"choice_kind": "single" 或 "multiple", "correct": ["正确项1", ...], "distractors": ["干扰项1", "干扰项2", ...]}
+"""
+
+TO_CHOICE_USER_TEMPLATE = """题干：{question}
+
+参考答案：{answer}
+
+请输出 JSON：{{"choice_kind": "single|multiple", "correct": [...], "distractors": [...]}}。"""
+
+
 def _extract_json(text: str) -> dict[str, Any]:
     """从模型输出里稳健解析 JSON 对象（优先 json_repair）。"""
     if json_repair is not None:
@@ -308,6 +342,39 @@ class LLMClient:
             else:
                 kept.append(it)
         return kept, dropped
+
+    def to_choice(
+        self,
+        question: str,
+        answer: str,
+        max_retries: int = 3,
+    ) -> Optional[dict[str, Any]]:
+        """把一道问答题转成选择题。
+
+        返回 {"choice_kind": "single"|"multiple", "correct": [...], "distractors": [...]}；
+        解析失败/重试耗尽返回 None（调用方决定是否跳过）。
+        """
+        user = TO_CHOICE_USER_TEMPLATE.format(question=question, answer=answer)
+        last_err: Optional[Exception] = None
+        for attempt in range(max_retries):
+            try:
+                raw = self.chat.infer(user, system=TO_CHOICE_SYSTEM_PROMPT)
+                data = _extract_json(raw)
+                kind = str(data.get("choice_kind", "")).strip().lower()
+                correct = data.get("correct") or []
+                distractors = data.get("distractors") or []
+                if kind in ("single", "multiple") and isinstance(correct, list) and isinstance(distractors, list):
+                    correct = [str(c).strip() for c in correct if str(c).strip()]
+                    distractors = [str(d).strip() for d in distractors if str(d).strip()]
+                    if correct and distractors:
+                        return {"choice_kind": kind, "correct": correct, "distractors": distractors}
+            except Exception as e:
+                last_err = e
+            if attempt < max_retries - 1:
+                time.sleep(2 ** attempt)
+        if last_err is not None:
+            raise RuntimeError(f"LLM 生成选择题失败（已重试 {max_retries} 次）：{last_err}")
+        return None
 
     def embed(self, texts: list[str]) -> list[list[float]]:
         """批量生成 embedding（开源本地模型）。"""

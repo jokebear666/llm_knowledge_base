@@ -5,6 +5,8 @@
   export     从语雀导出 .md（--namespace 或 --local 本地包）
   parse      解析 data/raw 为题目 JSON（--no-llm 可纯规则）
   qc         去重 + 导出人工抽检清单
+  review     回灌人工标注的 TSV，产出最终入库源
+  to-choice  把问答题转成单选/多选题
   load       质检通过的题目入库 Supabase
   run        一键串联 export -> parse -> qc（入库需人工确认后再 load）
 """
@@ -17,7 +19,7 @@ from .config import PARSED_DIR, QC_DIR, config
 from .exporter import export_from_api, import_local_package
 from .loader import apply_schema, load_to_supabase
 from .parser import load_questions, parse_all
-from .qc import run_qc
+from .qc import apply_review, run_qc
 
 SCHEMA_PATH = Path(__file__).resolve().parent.parent / "sql" / "schema.sql"
 
@@ -53,6 +55,25 @@ def cmd_qc(args):
     _dump(kept, QC_DIR / "deduped_questions.json")
     import json
     (QC_DIR / "embeddings.json").write_text(json.dumps(embeddings), encoding="utf-8")
+
+
+def cmd_review(args):
+    config.ensure_dirs()
+    apply_review(
+        tsv_path=Path(args.input),
+        out_path=Path(args.output),
+    )
+
+
+def cmd_to_choice(args):
+    config.ensure_dirs()
+    from .choice import to_choice_all
+    to_choice_all(
+        in_path=Path(args.input),
+        out_path=Path(args.output),
+        concurrency=args.concurrency,
+        resume=not args.no_resume,
+    )
 
 
 def cmd_load(args):
@@ -92,7 +113,7 @@ def cmd_run(args):
 
     print(
         "\n下一步（人工质检后再入库）：\n"
-        f"  1) 打开并核对 {QC_DIR / 'review_sheet.csv'}\n"
+        f"  1) 打开并核对 {QC_DIR / 'review_sheet.tsv'}\n"
         f"  2) 确认无误后入库：python -m quiz_pipeline.cli load "
         f"-i {QC_DIR / 'deduped_questions.json'}"
     )
@@ -123,8 +144,20 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--threshold", type=float, default=None, help="语义去重相似度阈值")
     sp.set_defaults(func=cmd_qc)
 
+    sp = sub.add_parser("review", help="回灌人工标注的 TSV，产出最终入库源")
+    sp.add_argument("-i", "--input", default=str(QC_DIR / "review_sheet.tsv"), help="人工标注后的 TSV")
+    sp.add_argument("-o", "--output", default=str(QC_DIR / "reviewed_questions_final.json"), help="输出入库源 JSON")
+    sp.set_defaults(func=cmd_review)
+
+    sp = sub.add_parser("to-choice", help="把问答题转成单选/多选题")
+    sp.add_argument("-i", "--input", default=str(QC_DIR / "reviewed_questions_final.json"), help="入库源 JSON")
+    sp.add_argument("-o", "--output", default=str(QC_DIR / "choice_questions.json"), help="带选择题字段的输出 JSON")
+    sp.add_argument("--concurrency", type=int, default=4, help="LLM 并发度（默认 4）")
+    sp.add_argument("--no-resume", action="store_true", help="不使用断点续跑缓存，全量重跑")
+    sp.set_defaults(func=cmd_to_choice)
+
     sp = sub.add_parser("load", help="入库 Supabase")
-    sp.add_argument("-i", "--input", default=str(QC_DIR / "deduped_questions.json"))
+    sp.add_argument("-i", "--input", default=str(QC_DIR / "choice_questions.json"))
     sp.add_argument("-e", "--embeddings", default=None, help="embeddings.json 路径")
     sp.add_argument("--unreviewed", action="store_true", help="标记为未质检（默认已质检）")
     sp.set_defaults(func=cmd_load)

@@ -25,7 +25,8 @@ def _vec_literal(embedding: Optional[list[float]]) -> Optional[str]:
 
 UPSERT_SQL = """
 insert into questions
-    (id, type, question, answer, category, tags, difficulty, source_doc, embedding, reviewed, updated_at)
+    (id, type, question, answer, category, tags, difficulty, question_kind, interview_fit, source_doc,
+     choice_kind, options, correct_index, embedding, reviewed, updated_at)
 values %s
 on conflict (id) do update set
     type = excluded.type,
@@ -34,7 +35,12 @@ on conflict (id) do update set
     category = excluded.category,
     tags = excluded.tags,
     difficulty = excluded.difficulty,
+    question_kind = excluded.question_kind,
+    interview_fit = excluded.interview_fit,
     source_doc = excluded.source_doc,
+    choice_kind = excluded.choice_kind,
+    options = excluded.options,
+    correct_index = excluded.correct_index,
     embedding = coalesce(excluded.embedding, questions.embedding),
     reviewed = excluded.reviewed,
     updated_at = now();
@@ -77,7 +83,12 @@ def load_to_supabase(
             q.category,
             q.tags,
             q.difficulty.value,
+            q.question_kind.value,
+            q.interview_fit.value,
             q.source_doc,
+            q.choice_kind.value if q.choice_kind else None,
+            q.options,
+            q.correct_index,
             _vec_literal(emb_map.get(q.id)),
             reviewed,
         ))
@@ -89,7 +100,7 @@ def load_to_supabase(
                 cur,
                 UPSERT_SQL,
                 rows,
-                template="(%s,%s,%s,%s,%s,%s,%s,%s,%s::vector,%s,now())",
+                template="(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s::vector,%s,now())",
                 page_size=100,
             )
         print(f"入库完成：{len(rows)} 道题已 upsert 到 Supabase。")

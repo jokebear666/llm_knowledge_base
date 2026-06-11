@@ -7,4 +7,8 @@ venv/
 # LLM 断点续跑缓存（体积大、无需入库）
 data/parsed/.llm_cache.json
 data_all/parsed/.llm_cache.json
+
+# 质检中间产物（体积大、可重算）
+data/qc/embeddings.json
+
 *.log
