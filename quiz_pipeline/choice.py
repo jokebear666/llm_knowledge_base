@@ -27,19 +27,18 @@ from .parser import _dump, load_questions
 # 断点续跑缓存：按题目 id 记录已生成的选择题原始结果
 CACHE_PATH = QC_DIR / ".choice_cache.json"
 
-_KIND_MAP = {"single": ChoiceKind.SINGLE, "multiple": ChoiceKind.MULTIPLE}
-
 
 def _assemble_choice(result: dict, seed: str) -> Optional[dict]:
     """把 LLM 结果（correct/distractors）组装成打乱后的 options + correct_index。
 
+    统一生成**单选题**：恰好 1 个正确项 + 3 个干扰项 = 4 个选项。
+    即使 LLM 多给了正确项/干扰项也会被截断，保证选项数恒为 4。
     返回 {"choice_kind", "options", "correct_index"}；非法则 None。
     seed 用题目 id，保证同一题打乱结果稳定可复现。
     """
-    kind = _KIND_MAP.get(str(result.get("choice_kind", "")).lower())
     correct = [c for c in (result.get("correct") or []) if c]
     distractors = [d for d in (result.get("distractors") or []) if d]
-    if kind is None or not correct or not distractors:
+    if not correct or not distractors:
         return None
 
     # 去重，避免正确项与干扰项文本重复导致下标歧义
@@ -54,28 +53,21 @@ def _assemble_choice(result: dict, seed: str) -> Optional[dict]:
             seen.add(d)
             uniq_distractors.append(d)
 
-    # 单选只保留 1 个正确项；多选需 >=2 个正确项，否则退化为单选
-    if kind == ChoiceKind.SINGLE:
-        uniq_correct = uniq_correct[:1]
-    if kind == ChoiceKind.MULTIPLE and len(uniq_correct) < 2:
-        kind = ChoiceKind.SINGLE
-        uniq_correct = uniq_correct[:1]
-    if not uniq_correct or len(uniq_distractors) < 1:
-        return None
+    # 强制单选：恰好 1 正确项 + 3 干扰项
+    uniq_correct = uniq_correct[:1]
+    uniq_distractors = uniq_distractors[:3]
+    if len(uniq_distractors) < 3:
+        return None  # 干扰项不足，无法凑齐 4 选项，跳过（可重跑补齐）
 
-    options = uniq_correct + uniq_distractors
-    if len(options) < 2:
-        return None
-
+    options = uniq_correct + uniq_distractors  # 恒为 4 个
     rng = random.Random(seed)
     order = list(range(len(options)))
     rng.shuffle(order)
     shuffled = [options[i] for i in order]
-    correct_set = set(range(len(uniq_correct)))  # 打乱前正确项的位置
-    correct_index = sorted(pos for pos, orig in enumerate(order) if orig in correct_set)
+    correct_index = sorted(pos for pos, orig in enumerate(order) if orig == 0)
 
     return {
-        "choice_kind": kind,
+        "choice_kind": ChoiceKind.SINGLE,
         "options": shuffled,
         "correct_index": correct_index,
     }
